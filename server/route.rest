@@ -1,0 +1,7 @@
+POST http://localhost:5000/thoughts/create-thought
+Content-Type: application/json
+
+{
+    "username": "ishai",
+    "thoughtText": "my first note"
+}

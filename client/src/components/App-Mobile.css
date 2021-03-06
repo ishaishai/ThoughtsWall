@@ -1,0 +1,6 @@
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    font-family: "Oi", cursive;
+    font-size: 6vw;
+  }
+}

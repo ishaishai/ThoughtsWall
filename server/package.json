@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "ThoughtsWall - Server",
+  "main": "app.js",
+  "scripts": {
+    "devstart": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Ishai Yaish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  }
+}
