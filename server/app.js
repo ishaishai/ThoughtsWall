@@ -20,10 +20,10 @@ const PORT = 5000;
 
 app.use(express.json());
 
-app.use("/auth", authRoutes);
-app.use("/users", usersRoutes);
-app.use("/thoughts", thoughtsRoutes);
-app.use("/comments", commentsRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/thoughts", thoughtsRoutes);
+app.use("/api/comments", commentsRoutes);
 
 app.listen(5000, () => {
   console.log(`Server listening on port ${PORT}`);

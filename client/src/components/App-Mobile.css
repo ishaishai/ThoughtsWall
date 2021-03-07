@@ -3,4 +3,23 @@
     font-family: "Oi", cursive;
     font-size: 6vw;
   }
+
+  .register-form-background {
+    width: 75vw;
+    height: 75vw;
+    z-index: 2;
+  }
+
+  .register-form-background::before {
+    width: 75vw;
+    height: 75vw;
+  }
+  .register-form {
+    font-size: 2.5vw;
+    padding: 10vw;
+  }
+  .register-form > button {
+    margin: auto;
+    width: 50%;
+  }
 }

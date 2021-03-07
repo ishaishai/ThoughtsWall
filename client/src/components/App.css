@@ -13,7 +13,17 @@ body {
   height: 100%;
   width: 100%;
 }
-
+.Loading {
+  height: 100%;
+  display: flex;
+}
+.spinner-border {
+  margin: auto;
+  width: 5vw;
+  height: 5vw;
+  border: 0.4em solid currentColor;
+  border-right-color: transparent;
+}
 .navbar-brand {
   font-family: "Oi", cursive;
   font-size: 2vw;
@@ -75,6 +85,14 @@ body {
   animation: rotate-back-form 3s infinite;
   animation-iteration-count: 1;
   transform: rotate(45deg);
+}
+
+.register-form > .btn {
+  width: 50%;
+  margin: 0 auto;
+}
+.register-form > h1 {
+  margin: 0 auto;
 }
 
 @keyframes rotate-back-form {

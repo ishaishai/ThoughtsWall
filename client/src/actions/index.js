@@ -25,8 +25,7 @@ export const register = (user) => async (dispatch) => {
   console.log(user);
   dispatch({ type: CREATE_USER_LOADING, payload: true });
   try {
-    await axios.post("/api/register", user);
-
+    await axios.post("/api/auth/register", user);
     dispatch({ type: CREATE_USER_SUCCESS });
   } catch (error) {
     dispatch({ type: CREATE_USER_ERROR, payload: error.response.data });
