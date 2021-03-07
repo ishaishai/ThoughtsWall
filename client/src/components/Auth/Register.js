@@ -4,7 +4,7 @@ import { register } from "../../actions/index";
 import { Form, Button } from "react-bootstrap";
 import Loader from "../Loader";
 
-const Register = ({ register, isLoading }) => {
+const Register = ({ register, isLoading, errors }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let user = {
@@ -22,6 +22,9 @@ const Register = ({ register, isLoading }) => {
         <Loader />
       </div>
     );
+  }
+  if (errors) {
+    return <div className="Loading">{errors}</div>;
   }
   return (
     <div className="register-container">
@@ -51,7 +54,7 @@ const Register = ({ register, isLoading }) => {
 
 const mapStateToProps = ({ user }) => ({
   isLoading: user.isLoading,
-  error: user.error,
+  errors: user.errors,
 });
 
 export default connect(mapStateToProps, { register })(Register);
