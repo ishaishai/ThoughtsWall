@@ -2,6 +2,7 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_ERROR,
   CREATE_USER_LOADING,
+  CLEAR_REGISTER_FORM,
 } from "../actions/types";
 
 const initialState = {
@@ -27,6 +28,10 @@ export default (state = initialState, action) => {
       return {
         ...initialState,
         errors: action.payload,
+      };
+    case CLEAR_REGISTER_FORM:
+      return {
+        ...initialState,
       };
     default:
       return state;

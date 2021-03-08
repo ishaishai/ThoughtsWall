@@ -8,6 +8,7 @@ import {
   CREATE_USER_ERROR,
   LOG_OUT,
   LOADING,
+  CLEAR_REGISTER_FORM,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -21,6 +22,17 @@ export const fetchUser = () => async (dispatch) => {
   }
 };
 
+export const login = (user) => async (dispatch) => {
+  dispatch({ type: FETCH_USER_LOADING });
+
+  try {
+    //const response = await axios.post('/api/login', user);
+    //dispatch({ type: FETCH_USER_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: FETCH_USER_ERROR, payload: error.response.data });
+  }
+};
+
 export const register = (user) => async (dispatch) => {
   console.log(user);
   dispatch({ type: CREATE_USER_LOADING, payload: true });
@@ -28,6 +40,11 @@ export const register = (user) => async (dispatch) => {
     await axios.post("/api/auth/register", user);
     dispatch({ type: CREATE_USER_SUCCESS });
   } catch (error) {
-    dispatch({ type: CREATE_USER_ERROR, payload: error.response.data });
+    console.log(error);
+    dispatch({ type: CREATE_USER_ERROR, payload: error.response.data.msg });
   }
+};
+
+export const clearRegister = () => async (dispatch) => {
+  dispatch({ type: CLEAR_REGISTER_FORM });
 };

@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { register } from "../../actions/index";
+import { register, clearRegister } from "../../actions/index";
 import { Form, Button } from "react-bootstrap";
 import Loader from "../Loader";
+import Alert from "../Alert";
 
-const Register = ({ register, isLoading, errors }) => {
+const Register = ({
+  history,
+  register,
+  clearRegister,
+  isLoading,
+  errors,
+  success,
+}) => {
+  useEffect(() => {
+    console.log("clearing register");
+    clearRegister();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let user = {
@@ -22,9 +35,25 @@ const Register = ({ register, isLoading, errors }) => {
         <Loader />
       </div>
     );
-  }
-  if (errors) {
-    return <div className="Loading">{errors}</div>;
+  } else if (errors) {
+    return (
+      <div className="Loading">
+        <Alert AlertTitle={"Error"} AlertText={errors} AlertType="failed" />
+      </div>
+    );
+  } else if (success) {
+    let redirectTimeout = setTimeout(() => {
+      history.push("/login");
+    }, 5000);
+    return (
+      <div className="Loading">
+        <Alert
+          AlertTitle={"Registeration Completed"}
+          AlertText={"Redirecting to Login page"}
+          AlertType="success"
+        />
+      </div>
+    );
   }
   return (
     <div className="register-container">
@@ -55,8 +84,9 @@ const Register = ({ register, isLoading, errors }) => {
 const mapStateToProps = ({ user }) => ({
   isLoading: user.isLoading,
   errors: user.errors,
+  success: user.success,
 });
 
-export default connect(mapStateToProps, { register })(Register);
+export default connect(mapStateToProps, { register, clearRegister })(Register);
 
 //export default Register;
