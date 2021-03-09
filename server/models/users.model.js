@@ -16,7 +16,7 @@ const usersSchema = new mongoose.Schema({
   Thoughts: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Thought",
+      ref: "Thoughts",
     },
   ],
   Comments: [

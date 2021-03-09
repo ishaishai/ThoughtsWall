@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const thoughtSchema = new mongoose.Schema({
   username: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Users",
   },
   thoughtText: {
     type: String,

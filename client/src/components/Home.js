@@ -1,5 +1,11 @@
+import ThoughtsContainer from "./Thoughts/ThoughtsContainer";
+
 const Home = () => {
-  return <div>home page</div>;
+  return (
+    <div className="home">
+      <ThoughtsContainer></ThoughtsContainer>
+    </div>
+  );
 };
 
 export default Home;
