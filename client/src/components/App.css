@@ -234,6 +234,23 @@ body {
   height: max-content;
 }
 
+.thought-pick-icon {
+  align-self: flex-end;
+  position: absolute;
+  margin: 1vw;
+  cursor: pointer;
+}
+
+.commentsShowbtn {
+  width: fit-content;
+  margin: 0 auto 0.5vw auto;
+  justify-content: center;
+  padding: 0.2vw;
+  font-size: 0.4vw;
+
+  border-radius: 10vw;
+}
+
 .thought-box {
   overflow-wrap: break-word;
   font-family: "Indie Flower", cursive;
@@ -268,6 +285,8 @@ body {
 }
 
 .thought-owner {
-  align-self: flex-end;
-  margin: 0.5vw auto;
+  position: absolute;
+  display: flex;
+  bottom: 2vw;
+  right: 3vw;
 }

@@ -27,8 +27,14 @@ exports.createThought = async (req, res) => {
       thoughtText: thoughtText,
     });
 
-    const newThought = thought.save();
-    res.status(200).json(newThought);
+    const newThought = await thought.save();
+    console.log(newThought["_id"]);
+    obj.Thoughts.push(newThought["_id"]);
+    await UsersSchema.updateOne(
+      { _id: obj["_id"] },
+      { Thoughts: obj.Thoughts }
+    );
+    res.status(200).json({ msg: "OK" });
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ message: error.message });
@@ -36,14 +42,8 @@ exports.createThought = async (req, res) => {
 };
 
 exports.getMyThoughts = async (req, res) => {
-  console.log(req.user);
-  let userId;
-  await UsersSchema.findOne({ username: req.user.username }, (err, obj) => {
-    userId = obj["_id"];
-  });
-  console.log(userId);
-  const thoughts = await ThoughtsSchema.find({
-    username: userId,
-  }).populate();
-  console.log(thoughts);
+  userThoughts = await UsersSchema.findOne({
+    username: req.user.username,
+  }).populate("Thoughts", "-_id -username -__v");
+  res.status(200).json(userThoughts);
 };

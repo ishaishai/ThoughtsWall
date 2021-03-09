@@ -1,21 +1,14 @@
-import axios from "axios";
 import Thought from "./Thought";
 import { thoughtsColors } from "./thoughtsColors";
-import { useState, useEffect } from "react";
 
-const ThoughtsContainer = () => {
-  const [thoughts, setThoughts] = useState([]);
-  useEffect(async () => {
-    const response = await axios.get("/api/thoughts/get-all-thoughts");
-    setThoughts(response.data);
-  }, []);
+const ThoughtsContainer = ({ thoughts }) => {
   return (
     <div className="thoughts-container">
       {thoughts.map((thought, i) => (
         <Thought
           color={thoughtsColors[i % thoughtsColors.length]}
-          key={thought["_id"]}
-          owner={thought.username.username}
+          key={thought["_id"] ? thought["_id"] : null}
+          owner={thought.username ? thought.username.username : null}
           text={thought.thoughtText}
         />
       ))}

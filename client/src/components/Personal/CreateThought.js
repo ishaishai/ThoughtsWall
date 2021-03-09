@@ -2,7 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
 
-const CreateThought = () => {
+const CreateThought = ({ history }) => {
   const handleThought = async (e) => {
     e.preventDefault();
     const thoughtText = e.target[0].value;
@@ -10,6 +10,9 @@ const CreateThought = () => {
     const response = await axios.post("/api/thoughts/create-thought", {
       thoughtText,
     });
+    if (response.data.msg === "OK") {
+      history.push("/");
+    }
   };
 
   return (
