@@ -65,6 +65,12 @@
     height: 95vw;
     border-radius: 30vw;
   }
+
+  .commentsShowbtn {
+    font-size: 1vw;
+    background-color: gainsboro;
+  }
+
   .thought-box {
     word-break: break-all;
     padding: 1.5vw;
@@ -73,6 +79,42 @@
     height: 15vh;
   }
   .hover-thought-box {
+    font-size: 1vw;
+  }
+  .thought-pick-icon {
+    margin: 1vw 0vw;
+  }
+  .thought-text {
+    font-size: 2.5vw;
+    margin-top: 4vw;
+    margin-left: 1vw;
+  }
+  .thought-owner {
+    font-size: 2.5vw;
+    bottom: 5vw;
+    right: 2vw;
+  }
+
+  .comments-modal .modal-title {
+    font-size: 4vw;
+  }
+
+  .comments-modal .toast-header {
+    font-size: 3vw;
+    padding: 0rem 0.5rem;
+  }
+  .comments-modal .toast-body {
+    padding: 0.5rem;
+    font-size: 2.5vw;
+  }
+  .comments-modal .modal-content {
+    width: 90vw;
+    height: 80vw;
+  }
+  .comments-modal .modal-footer {
+    padding: 0;
+  }
+  .comments-modal .modal-footer > button {
     font-size: 2vw;
   }
 }

@@ -237,7 +237,7 @@ body {
 .thought-pick-icon {
   align-self: flex-end;
   position: absolute;
-  margin: 1vw;
+  margin: 1vw 2vw;
   cursor: pointer;
 }
 
@@ -289,4 +289,22 @@ body {
   display: flex;
   bottom: 2vw;
   right: 3vw;
+}
+
+.comments-modal {
+  display: flex !important;
+}
+
+.modal-dialog {
+  margin: auto;
+  display: flex;
+}
+.modal-content {
+  width: 40vw;
+  height: 30vw;
+  background: whitesmoke;
+}
+
+.toast-header .mr-auto {
+  margin-left: 0.4vw;
 }
