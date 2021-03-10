@@ -18,6 +18,22 @@ body {
   width: 100%;
 }
 
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+}
+/* .my-masonry-grid_column > div {
+  background: yellow;
+  margin-bottom: 30px;
+} */
+
 .alert-container {
   font-family: "Bebas Neue", cursive;
   height: 15vw;
@@ -61,6 +77,9 @@ body {
   border: 0.4em solid currentColor;
   border-right-color: transparent;
 }
+.welcome-msg {
+  margin: auto;
+}
 .navbar-brand {
   font-family: "Oi", cursive;
   font-size: 2vw;
@@ -74,7 +93,7 @@ body {
 .nav-link {
   display: flex;
   justify-content: center;
-  width: 5vw;
+  width: fit-content;
   margin: 0px 5px 0px 5px;
 }
 .nav-link:hover,
@@ -235,9 +254,11 @@ body {
 }
 
 .thought-pick-icon {
-  align-self: flex-end;
-  position: absolute;
-  margin: 1vw 2vw;
+  /* align-self: flex-end; */
+  position: fixed;
+  right: 0;
+  display: block;
+  margin: 0.5vw 0.5vw;
   cursor: pointer;
 }
 
@@ -253,24 +274,23 @@ body {
 
 .thought-box {
   overflow-wrap: break-word;
-  font-family: "Indie Flower", cursive;
-  font-size: 1.2vw;
+  /* font-family: "Indie Flower", cursive; */
+  /* font-size: 1.2vw; */
   box-shadow: 3px 2px 10px;
   /* margin-top: 5vh; */
+  min-height: 5vw;
   margin: 0.8vw;
   display: flex;
-  justify-content: space-between;
   flex-flow: wrap;
   width: 20vw;
-  height: 25vh;
-  border-radius: 20%;
+  border-radius: 3%;
   flex-direction: column;
   transform: scale(1);
   transition: transform 0.8s ease;
 }
 .hover-thought-box {
   z-index: 3;
-  position: absolute;
+  position: absolute !important;
   top: 50%;
   left: 50%;
   transform: scale(3) translate(-20%, -20%);
@@ -279,18 +299,22 @@ body {
   font-size: 0.5vw;
 }
 .thought-text {
+  position: relative;
+  display: block;
   margin-top: 1vw;
   margin-left: 2vw;
+  width: 10vw;
   height: fit-content;
 }
 
 .thought-owner {
-  position: absolute;
-  display: flex;
-  bottom: 2vw;
-  right: 3vw;
+  position: fixed;
+  display: block;
+  bottom: 0.3vw;
+  right: 0.5vw;
 }
 
+/* Comments Modal */
 .comments-modal {
   display: flex !important;
 }
@@ -307,4 +331,43 @@ body {
 
 .toast-header .mr-auto {
   margin-left: 0.4vw;
+}
+
+/* end of comments modal */
+
+.create-thought-container {
+  height: inherit;
+  display: flex;
+}
+
+.create-thought-form-container {
+  background-color: #bcf;
+  z-index: 1;
+  top: 40%;
+  left: -30%;
+  margin: auto;
+  padding: 10vw;
+  border-radius: 1000px;
+  width: 80vw;
+  border: 60px solid #ffe08f;
+  animation: create-thought-border-glow 1.8s infinite;
+}
+.create-thought-form {
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 35%;
+  height: fit-content;
+}
+
+@keyframes create-thought-border-glow {
+  0% {
+    height: 30vw;
+  }
+  50% {
+    height: 40vw;
+  }
+  100% {
+    height: 30vw;
+  }
 }

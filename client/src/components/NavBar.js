@@ -24,10 +24,10 @@ const NavBar = ({ user, logout }) => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="nav-items">
-        {user ? (
-          <div className="welcome-msg">{`Hello ${user.username}`}</div>
-        ) : null}
         <Nav>
+          {user ? (
+            <div className="welcome-msg">{`Hello ${user.username}`}</div>
+          ) : null}
           {!user ? (
             <Nav.Link
               as={Link}
@@ -38,13 +38,37 @@ const NavBar = ({ user, logout }) => {
               Login
             </Nav.Link>
           ) : (
-            <Nav.Link
-              onSelect={() => setExpanded(!expanded)}
-              onClick={logout}
-              eventKey="5"
-            >
-              Logout
-            </Nav.Link>
+            <>
+              <Nav.Link
+                onSelect={() => setExpanded(!expanded)}
+                as={Link}
+                to="/profile"
+              >
+                Profile
+              </Nav.Link>
+
+              <Nav.Link
+                onSelect={() => setExpanded(!expanded)}
+                as={Link}
+                to="/my-thoughts"
+              >
+                Thoughts
+              </Nav.Link>
+              <Nav.Link
+                onSelect={() => setExpanded(!expanded)}
+                as={Link}
+                to="/create-thought"
+              >
+                Create Thought
+              </Nav.Link>
+              <Nav.Link
+                onSelect={() => setExpanded(!expanded)}
+                onClick={logout}
+                eventKey="5"
+              >
+                Logout
+              </Nav.Link>
+            </>
           )}
           {!user ? (
             <Nav.Link
@@ -55,32 +79,7 @@ const NavBar = ({ user, logout }) => {
             >
               Register
             </Nav.Link>
-          ) : (
-            <NavDropdown title="Menu" id="basic-nav-dropdown">
-              <NavDropdown.Item
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/profile"
-              >
-                Profile
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/my-thoughts"
-              >
-                Thoughts
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/create-thought"
-              >
-                Create Thought
-              </NavDropdown.Item>
-            </NavDropdown>
-          )}
+          ) : null}
         </Nav>
         {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
