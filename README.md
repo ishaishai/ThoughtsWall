@@ -4,12 +4,12 @@
 So basically, the idea is to return to basics, where you can put your thoughts and feelings, without any other media, just pure text, and get other people to comment on your thoughts. Just like pinterest mixed with facebook, but with no images. (who knows maybe I'll give up to the idea of sharing photos).
 
 ** Project still under development **
-
+- Used Technologies: React, React-bootstrap, MongoDB, Redux for state management.
 
 In a few days I'll upload a live demo of this app.
 
 ## Steps to install:
-### inside the project server and directory: `npm install` - will install any node module needed for the server & client
+### inside the project server and client directories: `npm install` - will install any node module needed for the server & client
 
 ## Configure database:
 ### Database is configured on MongoDB Atlas cloud.
