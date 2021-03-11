@@ -1,17 +1,24 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
 
 const CreateThought = ({ history }) => {
+  const [collapsed, setCollapsed] = useState(true);
+  const [alert, setAlert] = useState(false);
   const handleThought = async (e) => {
     e.preventDefault();
     const thoughtText = e.target[0].value;
     console.log(thoughtText);
-    const response = await axios.post("/api/thoughts/create-thought", {
-      thoughtText,
-    });
-    if (response.data.msg === "OK") {
-      history.push("/");
+    try {
+      const response = await axios.post("/api/thoughts/create-thought", {
+        thoughtText,
+      });
+      if (response.data.msg === "OK") {
+        history.push("/");
+      }
+    } catch (error) {
+      console.log(error.response.data.message.includes("date"));
+      setAlert(true);
     }
   };
 
@@ -29,6 +36,9 @@ const CreateThought = ({ history }) => {
           </Button>
         </Form>
       </div>
+      {alert && (
+        <Alert variant="danger">An error has occured please check!</Alert>
+      )}
     </div>
   );
 };

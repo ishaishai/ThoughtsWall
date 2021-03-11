@@ -1,16 +1,14 @@
 import { Toast } from "react-bootstrap";
 import { IoPersonCircleSharp } from "react-icons/io5";
-const Comment = () => {
+const Comment = ({ author, text, date }) => {
   return (
     <Toast>
       <Toast.Header>
         <IoPersonCircleSharp alt="Go to profile" />
-        <strong className="mr-auto">Author: </strong>
-        <small>11 mins ago</small>
+        <strong className="mr-auto">Author: {author}</strong>
+        <small>{date}</small>
       </Toast.Header>
-      <Toast.Body>
-        Hey, the same thing happend to me, that's hilarious!
-      </Toast.Body>
+      <Toast.Body>{text}</Toast.Body>
     </Toast>
   );
 };

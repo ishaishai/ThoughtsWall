@@ -18,6 +18,7 @@ const NavBar = ({ user, logout }) => {
       onToggle={() => setExpanded(!expanded)}
       expanded={expanded}
       expand="lg"
+      className="navbar"
     >
       <Navbar.Brand className="navbar-brand" href="/">
         Thoughts Wall

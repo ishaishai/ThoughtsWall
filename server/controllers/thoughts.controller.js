@@ -1,13 +1,23 @@
 const ThoughtsSchema = require("../models/thoughts.model");
 const UsersSchema = require("../models/users.model");
+const { timeSince } = require("../utils/dateParser");
+//console.log(timeSince(new Date(Date.now()-aDay))); to get the stamp
 
 exports.getAllThoughts = async (req, res) => {
   let thoughts;
   try {
-    thoughts = await ThoughtsSchema.find().populate(
-      "username",
-      "-password -_id -Thoughts -Comments -email -__v"
-    );
+    thoughts = await ThoughtsSchema.find()
+      .populate(
+        "thoughtAuthor",
+        "-password -_id -Thoughts -Comments -email -__v"
+      )
+      .lean();
+    thoughts = JSON.parse(JSON.stringify(thoughts));
+
+    thoughts.forEach((thought) => {
+      thought.date = `${timeSince(thought.date)} ago`;
+    });
+    console.log(thoughts);
     res.status(200).json(thoughts);
   } catch (error) {
     console.log(error.message);
@@ -18,13 +28,13 @@ exports.getAllThoughts = async (req, res) => {
 exports.createThought = async (req, res) => {
   const thoughtText = req.body.thoughtText;
   let thought;
-  console.log(req.user.username);
   try {
     obj = await UsersSchema.findOne({ username: req.user.username });
 
     thought = new ThoughtsSchema({
-      username: obj["_id"],
+      thoughtAuthor: obj["_id"],
       thoughtText: thoughtText,
+      date: Date.now(),
     });
 
     const newThought = await thought.save();
@@ -45,5 +55,6 @@ exports.getMyThoughts = async (req, res) => {
   userThoughts = await UsersSchema.findOne({
     username: req.user.username,
   }).populate("Thoughts", "-_id -username -__v");
+  console.log(userThoughts);
   res.status(200).json(userThoughts);
 };

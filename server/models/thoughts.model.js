@@ -1,18 +1,23 @@
 const mongoose = require("mongoose");
 
 const thoughtSchema = new mongoose.Schema({
-  username: {
+  thoughtAuthor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Users",
+    required: true,
   },
   thoughtText: {
     type: String,
     required: true,
   },
+  date: {
+    type: Number,
+    required: true,
+  },
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment",
+      ref: "Comments",
     },
   ],
 });
