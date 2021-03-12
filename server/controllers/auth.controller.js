@@ -60,7 +60,7 @@ exports.currentUser = async (req, res) => {
 
 exports.logout = async (req, res) => {
   res.clearCookie("token");
-  return res.redirect("/");
+  return res.status(200).redirect("/");
 };
 
 function generateAccessToken(user) {

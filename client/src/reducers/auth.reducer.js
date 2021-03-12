@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
       return { ...state, isLoading: true };
     }
     case USER_LOGOUT_SUCCESS: {
-      return { ...initialState };
+      return { ...initialState, user: false };
     }
     case USER_LOGOUT_ERROR: {
       return { ...state, error: action.payload };

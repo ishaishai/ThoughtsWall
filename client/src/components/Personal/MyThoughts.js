@@ -11,7 +11,7 @@ const MyThoughts = ({ history, isLoading, user, error }) => {
     //need to add action so a loading will pop while bringing the thougths
     const response = await axios.get("/api/thoughts/my-thoughts");
     console.log(response.data);
-    setThoughts(response.data.Thoughts);
+    setThoughts(response.data);
   }, []);
 
   if (!user) {

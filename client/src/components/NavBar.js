@@ -12,7 +12,13 @@ import { logout } from "../actions/index";
 import { useState } from "react";
 
 const NavBar = ({ user, logout }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
+  const foldNavMenu = () => {
+    if (expanded) {
+      setExpanded(false);
+    }
+  };
   return (
     <Navbar
       onToggle={() => setExpanded(!expanded)}
@@ -29,51 +35,34 @@ const NavBar = ({ user, logout }) => {
           {user ? (
             <div className="welcome-msg">{`Hello ${user.username}`}</div>
           ) : null}
+          <Nav.Link onSelect={foldNavMenu} as={Link} to="/" eventKey="1">
+            Home
+          </Nav.Link>
+
           {!user ? (
-            <Nav.Link
-              as={Link}
-              to="/login"
-              onSelect={() => setExpanded(!expanded)}
-              eventKey="2"
-            >
+            <Nav.Link as={Link} to="/login" onSelect={foldNavMenu} eventKey="2">
               Login
             </Nav.Link>
           ) : (
             <>
-              <Nav.Link
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/profile"
-              >
+              <Nav.Link onSelect={foldNavMenu} as={Link} to="/profile">
                 Profile
               </Nav.Link>
 
-              <Nav.Link
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/my-thoughts"
-              >
-                Thoughts
+              <Nav.Link onSelect={foldNavMenu} as={Link} to="/my-thoughts">
+                My Thoughts
               </Nav.Link>
-              <Nav.Link
-                onSelect={() => setExpanded(!expanded)}
-                as={Link}
-                to="/create-thought"
-              >
+              <Nav.Link onSelect={foldNavMenu} as={Link} to="/create-thought">
                 Create Thought
               </Nav.Link>
-              <Nav.Link
-                onSelect={() => setExpanded(!expanded)}
-                onClick={logout}
-                eventKey="5"
-              >
+              <Nav.Link onSelect={foldNavMenu} onClick={logout} eventKey="5">
                 Logout
               </Nav.Link>
             </>
           )}
           {!user ? (
             <Nav.Link
-              onSelect={() => setExpanded(!expanded)}
+              onSelect={foldNavMenu}
               as={Link}
               to="/register"
               eventKey="3"

@@ -9,12 +9,11 @@ exports.getCurrentUserComments = async (req, res) => {
 exports.getThoughtComments = async (req, res) => {
   console.log(req.query.id);
   try {
-    thought = await ThoughtsSchema.findOne({ _id: req.query.id })
-      .populate({
-        path: "comments",
-        populate: { path: "commentAuthor", CommentsSchema },
-      })
-      .exec();
+    thought = await ThoughtsSchema.findOne({ _id: req.query.id }).populate({
+      path: "comments",
+      populate: { path: "commentAuthor", CommentsSchema },
+    }).lean();
+    console.log(thought.comments);
     let comments = JSON.parse(JSON.stringify(thought.comments));
     comments = thought.comments.map((comment) => {
       return {
@@ -23,7 +22,6 @@ exports.getThoughtComments = async (req, res) => {
         date: `${timeSince(comment.date)} ago`,
       };
     });
-    console.log(comments);
 
     res.status(200).json(comments);
   } catch (error) {

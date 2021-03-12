@@ -42,13 +42,20 @@
   .register-form {
     font-size: 4.5vw;
     margin: 0 30%;
+    width: auto;
+    height: auto;
+  }
+  .register-form h1 {
+    font-size: 6.5vw;
   }
   .register-form label {
     margin-bottom: 0;
+    font-size: 4vw;
   }
-  .register-form > button {
+  .register-form .btn {
     margin: auto;
-    width: 50%;
+    width: auto;
+    height: auto;
   }
 
   /* login page */
@@ -57,6 +64,16 @@
     font-size: 4.5vw;
     width: 40vw;
     height: 70vw;
+  }
+  .login-form > button {
+    width: auto;
+    height: auto;
+  }
+  .login-form > h1 {
+    font-size: 6.5vw;
+  }
+  .login-form label {
+    font-size: 4vw;
   }
   .login-form-background {
     width: 95vw;
@@ -69,6 +86,9 @@
     border-radius: 30vw;
   }
 
+  .my-masonry-grid_column {
+    width: 30% !important;
+  }
   .commentsShowbtn {
     font-size: 1vw;
     background-color: gainsboro;
@@ -78,8 +98,7 @@
     word-break: break-all;
     padding: 1.5vw;
     font-size: 3vw;
-    width: 25vw;
-    height: 15vh;
+    width: 30vw;
   }
   .hover-thought-box {
     font-size: 1vw;
@@ -88,14 +107,20 @@
     margin: 1vw 0vw;
   }
   .thought-text {
-    font-size: 2.5vw;
-    margin-top: 4vw;
+    font-size: 2vw;
+    margin-top: 0.5vw;
     margin-left: 1vw;
+    width: auto;
+    margin-bottom: 4vw;
   }
   .thought-owner {
-    font-size: 2.5vw;
-    bottom: 5vw;
-    right: 2vw;
+    font-size: 2vw;
+    bottom: 0.5vw;
+    right: 0.8vw;
+  }
+
+  .thought-date {
+    font-size: 2vw;
   }
 
   .comments-modal .modal-title {

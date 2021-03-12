@@ -36,45 +36,6 @@ body {
   background: yellow;
   margin-bottom: 30px;
 } */
-/* bootstrap alert */
-.alert {
-  position: absolute;
-  top: 0;
-  margin-left: 40%;
-  z-index: 30;
-}
-/* end */
-.alert-container {
-  font-family: "Bebas Neue", cursive;
-  height: 15vw;
-  width: 40vw;
-  margin: auto;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0px 0px 20px 15px grey;
-}
-
-.alert-title {
-  font-size: 2.5rem;
-  position: relative;
-  margin: 0 auto;
-}
-.alert-text {
-  font-size: 1.5rem;
-  margin: 0 auto;
-}
-
-.success {
-  background-color: #78e08f;
-  color: whitesmoke;
-}
-
-.failed {
-  background-color: red;
-  color: whitesmoke;
-}
 
 .Loading {
   height: 100%;
@@ -110,6 +71,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
   border-radius: 30px;
+  background-color: #f5c16d;
 }
 
 .notes-container {
@@ -129,8 +91,8 @@ body {
   margin: auto;
   display: flex;
   position: relative;
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   z-index: 2;
   background-color: rgba(104, 109, 224, 1);
   box-shadow: 1px 1px 3px 1px;
@@ -142,8 +104,8 @@ body {
 
 .register-form-background::before {
   content: "";
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   background-color: rgba(34, 166, 179, 1);
   position: absolute;
   top: 0;
@@ -194,8 +156,8 @@ body {
   margin: auto;
   font-family: "Bebas Neue", cursive;
   font-size: 1vw;
-  width: 20vw;
-  height: 25vw;
+  width: 15vw;
+  height: 20vw;
   display: grid;
 }
 
@@ -217,8 +179,8 @@ body {
 .login-form-background::before {
   content: "";
   position: absolute;
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   z-index: -10;
   background-color: #00cbf4;
   box-shadow: 1px 1px 3px 1px;
@@ -242,8 +204,8 @@ body {
   margin: auto;
   display: flex;
   position: relative;
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   background-color: #f5c16d;
   top: 0;
   border-radius: 30vw;
@@ -309,11 +271,12 @@ body {
   display: flex;
   flex-flow: wrap;
   width: 20vw;
-  border-radius: 8%;
+  /* border-radius: 8%; */
   flex-direction: column;
   transform: scale(1);
   transition: transform 0.8s ease;
 }
+
 .hover-thought-box {
   z-index: 3;
   position: absolute !important;

@@ -13,7 +13,6 @@ const Home = ({ user }) => {
 
   return (
     <div className="home" style={{ height: "100%" }}>
-      {console.log(user)}
       <ThoughtsContainer thoughts={thoughts} />
     </div>
   );

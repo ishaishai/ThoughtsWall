@@ -11,6 +11,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./App-Mobile.css";
 import CreateThought from "./Personal/CreateThought";
+import ProtectedRoute from "./ProtectedRoute";
+import { Nav } from "react-bootstrap";
 
 const App = ({ fetchUser, auth }) => {
   useEffect(() => {
@@ -20,13 +22,31 @@ const App = ({ fetchUser, auth }) => {
   return (
     <div className="App">
       <Router>
+        {/* {auth.user && <NavBar />} */}
         <NavBar />
         <Switch>
+          {/* <ProtectedRoute
+            isLoggedIn={auth.user}
+            path="/"
+            exact
+            component={Home}
+          /> */}
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <Route path="/my-thoughts" exact component={MyThoughts} />
-          <Route path="/create-thought" exact component={CreateThought} />
+
+          <ProtectedRoute
+            isLoggedIn={auth.user}
+            path="/my-thoughts"
+            exact
+            component={MyThoughts}
+          />
+          <ProtectedRoute
+            isLoggedIn={auth.user}
+            path="/create-thought"
+            exact
+            component={CreateThought}
+          />
         </Switch>
       </Router>
     </div>

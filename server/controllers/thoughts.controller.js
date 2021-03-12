@@ -54,7 +54,16 @@ exports.createThought = async (req, res) => {
 exports.getMyThoughts = async (req, res) => {
   userThoughts = await UsersSchema.findOne({
     username: req.user.username,
-  }).populate("Thoughts", "-_id -username -__v");
+  })
+    .populate("Thoughts", "-comments -__v")
+    .select("Thoughts -_id")
+    .lean();
+
+  userThoughts = JSON.parse(JSON.stringify(userThoughts.Thoughts));
+  console.log(userThoughts);
+  userThoughts.forEach((thought) => {
+    thought.date = `${timeSince(thought.date)} ago`;
+  });
   console.log(userThoughts);
   res.status(200).json(userThoughts);
 };

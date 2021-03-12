@@ -6,7 +6,6 @@ const breakpointColumnsObj = {
   default: 4,
   768: 3,
   700: 2,
-  500: 1,
 };
 
 const getRandomInt = (max) => {

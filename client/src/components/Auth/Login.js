@@ -3,46 +3,20 @@ import { Button, Form } from "react-bootstrap";
 import { login, clearLogin } from "../../actions/index";
 import Loader from "../Loader";
 import { connect } from "react-redux";
-import Alert from "../Alert";
+import { Alert } from "react-bootstrap";
 
 const Login = ({ login, history, isLoading, user, error, clearLogin }) => {
-  useEffect(() => {
-    clearLogin();
-  }, []);
-
   const handleLogin = (e) => {
     e.preventDefault();
-    login({ username: e.target[0].value, password: e.target[1].value });
-  };
-
-  if (user) {
-    console.log(user);
-    let redirectTimeout = setTimeout(() => {
-      history.push("/");
-    }, 2000);
-    return (
-      <div className="Loading">
-        <Alert
-          AlertTitle={"Login Success"}
-          AlertText={`Hello ${user.username}`}
-          AlertType="success"
-        />
-      </div>
+    login(
+      { username: e.target[0].value, password: e.target[1].value },
+      history
     );
-  } else if (isLoading) {
+  };
+  if (isLoading) {
     return (
       <div className="Loading">
         <Loader />
-      </div>
-    );
-  } else if (error) {
-    let redirectTimeout = setTimeout(() => {
-      clearLogin();
-      history.push("/login");
-    }, 2000);
-    return (
-      <div className="Loading">
-        <Alert AlertTitle={"Error"} AlertText={error} AlertType="failed" />
       </div>
     );
   } else
@@ -64,6 +38,20 @@ const Login = ({ login, history, isLoading, user, error, clearLogin }) => {
             </Button>
           </Form>
         </div>
+        {error && (
+          <Alert
+            style={{
+              position: "absolute",
+              bottom: "0px",
+              width: "100% ",
+              display: "flex",
+              justifyContent: "center",
+            }}
+            variant="danger"
+          >
+            {error}
+          </Alert>
+        )}
       </div>
     );
 };

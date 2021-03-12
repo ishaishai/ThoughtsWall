@@ -24,15 +24,15 @@ export const fetchUser = () => async (dispatch) => {
   }
 };
 
-export const login = (user) => async (dispatch) => {
+export const login = (user, history) => async (dispatch) => {
   dispatch({ type: FETCH_USER_LOADING });
   console.log(user);
   try {
     const response = await axios.post("/api/auth/sign-in", user);
     console.log(response.data);
     dispatch({ type: FETCH_USER_SUCCESS, payload: response.data.userDetails });
+    history.push("/");
   } catch (error) {
-    console.log(error.response.data);
     dispatch({ type: FETCH_USER_ERROR, payload: error.response.data.msg });
   }
 };
