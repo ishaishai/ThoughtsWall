@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Thoughts Wall - Social Media Network
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## - What? Why? How?
+So basically, the idea is to return to basics, where you can put your thoughts and feelings, without any other media, just pure text, and get other people to comment on your thoughts. Just like pinterest mixed with facebook, but with no images. (who knows maybe I'll give up to the idea of sharing photos).
 
-## Available Scripts
+** Project still under development **
+- Used Technologies: React, React-bootstrap, MongoDB, Redux for state management.
 
-In the project directory, you can run:
+In a few days I'll upload a live demo of this app.
 
-### `npm start`
+## Steps to install:
+### inside the project server and client directories: `npm install` - will install any node module needed for the server & client
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Configure database:
+### Database is configured on MongoDB Atlas cloud.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Screenshots from desktop view
+### Main screen - Thought Wall:
+![home](https://user-images.githubusercontent.com/36458741/110866755-4f492680-82ce-11eb-8110-a37f6d2de07f.png)
 
-### `npm test`
+### Main screen - Thought Pick:
+![focus-thought](https://user-images.githubusercontent.com/36458741/110866816-6425ba00-82ce-11eb-8b9b-3ecca12d074a.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Main screen - Thought Comments section:
+![comments](https://user-images.githubusercontent.com/36458741/110866852-730c6c80-82ce-11eb-98f2-2cf7210e886a.png)
 
-### `npm run build`
+### Thought Create screen:
+![create-thought](https://user-images.githubusercontent.com/36458741/110866895-86b7d300-82ce-11eb-98cf-77ee10525534.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Login Screen: 
+![login](https://user-images.githubusercontent.com/36458741/110866925-99caa300-82ce-11eb-98e9-c6fe6d037aca.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Register Screen:
+![register](https://user-images.githubusercontent.com/36458741/110866951-a3540b00-82ce-11eb-8708-7ea20a3f2db5.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### soon other screens like Profile, Private chat and User Thoughts-Comments managing will be uploaded
