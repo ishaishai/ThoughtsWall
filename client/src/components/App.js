@@ -13,7 +13,6 @@ import "./App-Mobile.css";
 import CreateThought from "./Personal/CreateThought";
 import ProtectedRoute from "./ProtectedRoute";
 import { Nav } from "react-bootstrap";
-
 const App = ({ fetchUser, auth }) => {
   useEffect(() => {
     fetchUser();
@@ -22,15 +21,8 @@ const App = ({ fetchUser, auth }) => {
   return (
     <div className="App">
       <Router>
-        {/* {auth.user && <NavBar />} */}
         <NavBar />
         <Switch>
-          {/* <ProtectedRoute
-            isLoggedIn={auth.user}
-            path="/"
-            exact
-            component={Home}
-          /> */}
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />

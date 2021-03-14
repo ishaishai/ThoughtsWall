@@ -8,6 +8,7 @@ body {
   box-sizing: border-box;
   height: -webkit-fill-available;
   width: inherit;
+  background-color: #2c3e50;
 }
 #root {
   height: 100%;
@@ -17,10 +18,11 @@ body {
   height: inherit;
   width: 100%;
 }
+
 .my-masonry-grid {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5vw;
+  margin-top: 1vw;
   margin-bottom: 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,12 +51,18 @@ body {
   border-right-color: transparent;
 }
 .welcome-msg {
-  margin: auto;
+  color: whitesmoke;
+  margin: auto 1vw;
 }
 
+.navbar {
+  background-color: #2c3e50;
+  border-bottom: 1px solid;
+}
 .navbar-brand {
-  font-family: "Oi", cursive;
+  font-family: "Rubik", sans-serif;
   font-size: 2vw;
+  color: whitesmoke !important;
 }
 .nav-items {
   font-family: "Bebas Neue", cursive;
@@ -97,12 +105,12 @@ body {
   background-color: rgba(104, 109, 224, 1);
   box-shadow: 1px 1px 3px 1px;
   border-radius: 10vw;
-  animation: rotate-front-form 2s infinite;
+  animation: rotate-front-form 1.5s infinite;
   animation-fill-mode: backwards;
   animation-iteration-count: 1;
 }
 
-.register-form-background::before {
+/* .register-form-background::before {
   content: "";
   width: 30vw;
   height: 30vw;
@@ -115,78 +123,58 @@ body {
   animation: rotate-back-form 3s infinite;
   animation-iteration-count: 1;
   transform: rotate(45deg);
-}
+} */
 
 .register-form > .btn {
   width: 50%;
   margin: 0 auto;
 }
 
-.register-form > h1 {
-  margin: 0 auto;
-}
-
-@keyframes rotate-back-form {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(315deg);
-  }
-}
-
 @keyframes rotate-front-form {
   0% {
-    transform: rotate(0);
-  }
-  100% {
+    left: 100vw;
     transform: rotate(360deg);
   }
-}
-
-.login-form {
-  animation: show-up-login-form 1s infinite;
-  animation-iteration-count: 1;
-  animation-delay: 1.5s;
-  animation-fill-mode: forwards;
-  transform: scale(0);
-}
-.login-form,
-.register-form {
-  margin: auto;
-  font-family: "Bebas Neue", cursive;
-  font-size: 1vw;
-  width: 15vw;
-  height: 20vw;
-  display: grid;
+  100% {
+    left: 0;
+    transform: rotate(0);
+  }
 }
 
 @keyframes show-up-login-form {
   0% {
     opacity: 0;
-    transform: scale(3.5);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
   }
+}
+
+.login-form,
+.register-form {
+  animation: show-up-login-form 4s infinite;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  margin: auto;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1vw;
+  width: 15vw;
+  display: grid;
 }
 
 /* register page end */
 
 /* login page */
 
-.login-form-background::before {
-  content: "";
-  position: absolute;
+.login-form-background {
+  display: flex;
+  position: relative;
   width: 30vw;
   height: 30vw;
-  z-index: -10;
-  background-color: #00cbf4;
+  background-color: #f5c16d;
   box-shadow: 1px 1px 3px 1px;
   border-radius: 10vw;
-  top: 0;
-  left: 0;
+  margin: auto;
   animation: rotate-back-login 1.5s;
 }
 @keyframes rotate-back-login {
@@ -200,7 +188,7 @@ body {
   }
 }
 
-.login-form-background {
+/* .login-form-background {
   margin: auto;
   display: flex;
   position: relative;
@@ -210,7 +198,7 @@ body {
   top: 0;
   border-radius: 30vw;
   box-shadow: 1px 1px 10px 1px;
-}
+} */
 
 .login-form > button {
   width: 10vw;
@@ -234,80 +222,55 @@ body {
   height: max-content;
 }
 
-.thought-pick-icon {
-  /* align-self: flex-end; */
-  position: fixed;
-  right: 0;
-  display: block;
-  margin: 0.5vw 0.5vw;
-  cursor: pointer;
-}
-
-.commentsShowbtn {
-  width: fit-content;
-  bottom: 2%;
-  left: 40%;
-  padding: 0.2vw;
-  font-size: 0.4vw;
-  position: absolute;
-}
 /* .commentsShowbtn:hover {
   color: #212529;
   background-color: #e2e6ea;
   border-color: #dae0e5;
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 } */
-
-.thought-box {
-  font-family: "Rubik", sans-serif;
-  overflow-wrap: break-word;
-  /* font-family: "Indie Flower", cursive; */
-  /* font-size: 1.2vw; */
-  /* box-shadow: 1px 1px 2px; */
-  /* margin-top: 5vh; */
-  padding: 0.5vw;
-  min-height: 15vw;
-  margin: 1vw 0px;
-  display: flex;
-  flex-flow: wrap;
-  width: 20vw;
-  /* border-radius: 8%; */
-  flex-direction: column;
+.card {
+  width: 18rem;
+  margin: 1vw 0;
+  background-color: #e1e5e7;
   transform: scale(1);
   transition: transform 0.8s ease;
+  animation: show-up-login-form 0.8s;
 }
 
-.hover-thought-box {
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* hover-card */
+.hover-thought-card {
   z-index: 3;
   position: absolute !important;
-  top: 50%;
-  left: 50%;
-  transform: scale(2) translate(-20%, -20%);
+  top: 25%;
+  left: 40%;
+  transform: scale(1.5);
   transition: transform 1.2s ease;
+  /* , top 1.2s ease, left 1.2s ease; */
   /* transition: font-size 10.2s ease; */
-  font-size: 0.5vw;
-}
-.thought-text {
-  position: relative;
-  display: block;
-  margin-top: 1vw;
-  margin-left: 2vw;
-  margin-bottom: 3vw;
-  width: 15vw;
-  height: fit-content;
-}
-.thought-date {
-  position: fixed;
-  display: block;
-  bottom: 0.5vw;
-  left: 0.8vw;
 }
 
-.thought-owner {
-  position: fixed;
+.thoughtTogglesBox {
+  display: flex;
+}
+.toggleThoughtBtn,
+.toggleCommentsBtn {
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  font-size: 0.6rem;
+  /* position: absolute; */
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
   display: block;
-  bottom: 0.5vw;
-  right: 0.8vw;
+  width: fit-content;
+  align-self: flex-end;
 }
 
 /* Comments Modal */
@@ -358,26 +321,14 @@ body {
   display: flex;
 }
 
-.create-thought-form-container {
-  background-color: #b08df3;
-  z-index: 1;
-  top: 40%;
-  left: -30%;
+.create-thought-container .card {
   margin: auto;
-  padding: 10vw;
-  border-radius: 1000px;
-  width: 80vw;
-  border: 60px solid #f4956e;
-  animation: create-thought-border-glow 1.8s infinite;
+  width: 25rem;
+  height: 10rem;
 }
-.create-thought-form {
-  z-index: 3;
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  height: fit-content;
+.create-thought-container .thoughtTogglesBox {
+  margin-top: auto;
 }
-
 @keyframes create-thought-border-glow {
   0% {
     height: 30vw;

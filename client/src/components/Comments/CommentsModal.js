@@ -35,6 +35,7 @@ const CommentsModal = ({ id, showComments, setShowComments }) => {
   };
   useEffect(async () => {
     getComments();
+    console.log(showComments);
   }, []);
   return (
     <Modal

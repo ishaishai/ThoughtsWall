@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Thought from "../components/Thoughts/Thought";
+import Particles from "react-particles-js";
 
 const Home = ({ user }) => {
   const [thoughts, setThoughts] = useState([]);
@@ -12,7 +13,30 @@ const Home = ({ user }) => {
   }, []);
 
   return (
-    <div className="home" style={{ height: "100%" }}>
+    <div className="home">
+      <Particles
+        style={{ position: "absolute" }}
+        height="100%"
+        width="100%"
+        params={{
+          particles: {
+            color: {
+              value: "#000000",
+            },
+            line_linked: {
+              color: {
+                value: "#000000",
+              },
+            },
+            number: {
+              value: 100,
+            },
+            size: {
+              value: 1,
+            },
+          },
+        }}
+      />
       <ThoughtsContainer thoughts={thoughts} />
     </div>
   );

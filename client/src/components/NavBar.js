@@ -45,17 +45,32 @@ const NavBar = ({ user, logout }) => {
             </Nav.Link>
           ) : (
             <>
-              <Nav.Link onSelect={foldNavMenu} as={Link} to="/profile">
+              <Nav.Link
+                onSelect={foldNavMenu}
+                as={Link}
+                to="/profile"
+                eventKey="3"
+              >
                 Profile
               </Nav.Link>
 
-              <Nav.Link onSelect={foldNavMenu} as={Link} to="/my-thoughts">
+              <Nav.Link
+                onSelect={foldNavMenu}
+                as={Link}
+                to="/my-thoughts"
+                eventKey="4"
+              >
                 My Thoughts
               </Nav.Link>
-              <Nav.Link onSelect={foldNavMenu} as={Link} to="/create-thought">
+              <Nav.Link
+                onSelect={foldNavMenu}
+                as={Link}
+                to="/create-thought"
+                eventKey="5"
+              >
                 Create Thought
               </Nav.Link>
-              <Nav.Link onSelect={foldNavMenu} onClick={logout} eventKey="5">
+              <Nav.Link onSelect={foldNavMenu} onClick={logout} eventKey="6">
                 Logout
               </Nav.Link>
             </>
