@@ -17,11 +17,11 @@ Im about to add also a chat messenger box (still working on it) and need to add 
 
 ## Screenshots from desktop view
 ### Main screen - Thought Wall:
-![home](https://user-images.githubusercontent.com/36458741/111218182-13200980-85df-11eb-8896-8dd705735371.png)
+![home](https://user-images.githubusercontent.com/36458741/111218182-13200980-85df-11eb-8896-8dd705735371.png | width=100)
 
 
 ### Main screen - Thought Pick:
-![view-thought](https://user-images.githubusercontent.com/36458741/111218381-511d2d80-85df-11eb-92ef-d31ce1a3ca0d.png)
+![view-thought](https://user-images.githubusercontent.com/36458741/111218381-511d2d80-85df-11eb-92ef-d31ce1a3ca0d.png )
 
 ### Main screen - Thought Comments section:
 ![view-recent-comments](https://user-images.githubusercontent.com/36458741/111218402-59756880-85df-11eb-9437-cacfda0fccc8.png)
