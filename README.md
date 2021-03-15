@@ -17,7 +17,7 @@ Im about to add also a chat messenger box (still working on it) and need to add 
 
 ## Screenshots from desktop view
 ### Main screen - Thought Wall:
-![home](https://user-images.githubusercontent.com/36458741/111218182-13200980-85df-11eb-8896-8dd705735371.png){:height="100px" width="40px"}
+![home](https://user-images.githubusercontent.com/36458741/111218182-13200980-85df-11eb-8896-8dd705735371.png)
 
 
 ### Main screen - Thought Pick:
