@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/index";
 import { useState } from "react";
+import "../styles/Navbar.css";
 
 const NavBar = ({ user, logout }) => {
   const [expanded, setExpanded] = useState(false);

@@ -51,13 +51,15 @@ const CommentsModal = ({ id, showComments, setShowComments }) => {
         {isLoading ? (
           <Loader />
         ) : (
-          comments.map((comment, i) => (
-            <Comment
-              author={comment.author}
-              text={comment.commentText}
-              date={comment.date}
-            />
-          ))
+          comments
+            .map((comment, i) => (
+              <Comment
+                author={comment.author}
+                text={comment.commentText}
+                date={comment.date}
+              />
+            ))
+            .reverse()
         )}
       </Modal.Body>
 

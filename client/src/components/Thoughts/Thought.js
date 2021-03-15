@@ -5,6 +5,7 @@ import CommentsModal from "../Comments/CommentsModal";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
+import "../../styles/Thoughts.css";
 const Thought = ({ user, id, color, date, owner, text }) => {
   const [chosen, setChosen] = useState(false);
   const [showComments, setShowComments] = useState(false);

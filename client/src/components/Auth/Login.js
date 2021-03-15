@@ -4,6 +4,7 @@ import { login, clearLogin } from "../../actions/index";
 import Loader from "../Loader";
 import { connect } from "react-redux";
 import { Alert } from "react-bootstrap";
+import "../../styles/Auth.css";
 
 const Login = ({ login, history, isLoading, user, error, clearLogin }) => {
   const handleLogin = (e) => {

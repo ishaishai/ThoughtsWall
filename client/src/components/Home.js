@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Thought from "../components/Thoughts/Thought";
 import Particles from "react-particles-js";
+import "../styles/App.css";
 
 const Home = ({ user }) => {
   const [thoughts, setThoughts] = useState([]);

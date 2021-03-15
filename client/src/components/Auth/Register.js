@@ -4,6 +4,7 @@ import { register, clearRegister } from "../../actions/index";
 import { Form, Button } from "react-bootstrap";
 import Loader from "../Loader";
 import Alert from "../Alert";
+import "../../styles/Auth.css";
 
 const Register = ({
   history,

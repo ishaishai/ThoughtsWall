@@ -1,0 +1,187 @@
+.thoughts-container {
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  display: flex;
+  width: max-content;
+  height: max-content;
+}
+.card {
+  width: 18rem;
+  margin: 1vw 0;
+  background-color: #e1e5e7;
+  transform: scale(1);
+  transition: transform 0.8s ease;
+  animation: show-up-login-form 0.8s;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* hover-card */
+.hover-thought-card {
+  z-index: 3;
+  position: absolute !important;
+  top: 25%;
+  left: 40%;
+  transform: scale(1.5);
+  transition: transform 1.2s ease;
+  /* , top 1.2s ease, left 1.2s ease; */
+  /* transition: font-size 10.2s ease; */
+}
+
+.thoughtTogglesBox {
+  display: flex;
+}
+.toggleThoughtBtn,
+.toggleCommentsBtn {
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  font-size: 0.6rem;
+  /* position: absolute; */
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  display: block;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+/* Comments Modal */
+.comments-modal {
+  display: flex !important;
+}
+.thoughtTogglesBox button {
+  font-size: 0.8rem;
+}
+.hover-thought-card .thoughtTogglesBox button {
+  font-size: 0.5rem;
+  width: auto;
+}
+
+.hover-thought-card .card-subtitle {
+  font-size: 0.8rem;
+}
+.modal-dialog {
+  margin: auto;
+  display: flex;
+}
+
+.modal-dialog form button {
+  font-size: 0.8rem;
+}
+.modal-content {
+  width: 40vw !important;
+  height: 30vw;
+  background: whitesmoke;
+}
+
+.toast-header .mr-auto {
+  margin-left: 0.4vw;
+}
+
+.modal-header {
+  padding: 0.5vw;
+}
+.modal-title {
+  font-size: 1vw;
+  margin-left: 1vw;
+}
+.modal-body {
+  overflow-y: auto;
+}
+.modal-footer {
+  padding: 0;
+}
+.modal-footer form {
+  width: 100%;
+}
+
+.modal-footer button {
+  margin: 0.3vw;
+  float: right;
+}
+
+.create-thought-container {
+  height: inherit;
+  display: flex;
+}
+
+.create-thought-container .card {
+  margin: auto;
+  width: 25rem;
+  height: 10rem;
+}
+.create-thought-container .thoughtTogglesBox {
+  margin-top: auto;
+}
+@keyframes create-thought-border-glow {
+  0% {
+    height: 30vw;
+  }
+  50% {
+    height: 40vw;
+  }
+  100% {
+    height: 30vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 10rem !important;
+  }
+  .hover-thought-card {
+    left: 18%;
+    width: 15rem !important;
+  }
+
+  .modal-dialog {
+    margin: auto !important;
+    height: 70vw !important;
+    width: auto !important;
+  }
+  .modal-content {
+    width: 90vw !important;
+  }
+  .comments-modal .modal-title {
+    font-size: 4vw;
+  }
+
+  .comments-modal .toast-header {
+    font-size: 3vw;
+    padding: 0rem 0.5rem;
+  }
+  .comments-modal .toast-body {
+    padding: 0.5rem;
+    font-size: 3.5vw;
+  }
+  .comments-modal .modal-content {
+    width: 90vw;
+    height: 80vw;
+  }
+  .comments-modal .modal-footer {
+    padding: 0;
+  }
+  .comments-modal .modal-footer > button {
+    font-size: 2vw;
+  }
+  .modal-footer form {
+    height: 20vw !important;
+  }
+  .create-thought-container {
+    height: 70vh;
+  }
+  .create-thought-container .thoughtTogglesBox {
+    margin-top: 3vh !important;
+  }
+  .create-thought-container .card {
+    margin: auto;
+    width: 20rem !important;
+    height: 10rem;
+  }
+}

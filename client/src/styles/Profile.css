@@ -1,0 +1,105 @@
+.profile-container {
+  display: flex;
+  height: inherit;
+}
+.profile-ticket {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+  margin: auto;
+}
+.profile-ticket .card {
+  border-radius: unset;
+  width: 50vw;
+  height: 30vw;
+  margin: 0 !important;
+}
+.profile-id {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.profile-id .card-img-top {
+  border-radius: 5vw;
+  /* border: silver 10px solid; */
+  box-shadow: 0px 10px 50px 10px grey;
+  /* border: rgba(245, 193, 109, 0.6) 10px solid; */
+  width: 10vw;
+  height: 10vw;
+  margin: 2vw auto;
+}
+
+.profile-id .basic-details {
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+.profile-about {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-about {
+  padding-top: 3vw;
+  height: -webkit-fill-available;
+}
+
+.profile-about .contact-info {
+  margin-top: 2vw;
+}
+
+.profile-about .contact-info-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-btn {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  right: 15vw;
+  bottom: 2vw;
+}
+
+.chat-btn {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-ticket {
+    flex-direction: column;
+    width: 80vw;
+    box-shadow: 1px 1px 7px 1px white;
+  }
+  .profile-ticket .profile-id {
+    width: auto;
+  }
+  .profile-id .card-img-top {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 40vw;
+  }
+  .profile-id .basic-details {
+    text-align: center;
+  }
+  .profile-ticket .card {
+    width: auto !important;
+    height: auto;
+    margin: 0 !important;
+  }
+
+  .contact-info-details button {
+    position: relative;
+    bottom: unset;
+    left: unset;
+    right: unset;
+    width: auto;
+    margin: 1vw;
+  }
+}

@@ -1,0 +1,133 @@
+/* register page */
+.login-container,
+.register-container {
+  display: flex;
+  height: 90%;
+  overflow: hidden;
+}
+
+.login-form,
+.register-form {
+  animation: show-up-login-form 4s infinite;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  margin: auto;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1vw;
+  width: 15vw;
+  display: grid;
+}
+
+.register-form-background {
+  margin: auto;
+  display: flex;
+  position: relative;
+  width: 30vw;
+  height: 30vw;
+  z-index: 2;
+  background-color: rgba(104, 109, 224, 1);
+  box-shadow: 1px 1px 3px 1px;
+  border-radius: 10vw;
+  animation: rotate-front-form 1.5s infinite;
+  animation-fill-mode: backwards;
+  animation-iteration-count: 1;
+}
+
+.register-form > .btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@keyframes rotate-front-form {
+  0% {
+    left: 100vw;
+    transform: rotate(360deg);
+  }
+  100% {
+    left: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes show-up-login-form {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.login-form-background {
+  display: flex;
+  position: relative;
+  width: 30vw;
+  height: 30vw;
+  background-color: #f5c16d;
+  box-shadow: 1px 1px 3px 1px;
+  border-radius: 10vw;
+  margin: auto;
+  animation: rotate-back-login 1.5s;
+}
+@keyframes rotate-back-login {
+  0% {
+    left: -100vw;
+    transform: rotate(0);
+  }
+  100% {
+    left: 0;
+    transform: rotate(360deg);
+  }
+}
+
+.login-form > button {
+  width: 10vw;
+  height: 3vw;
+  margin: auto;
+}
+
+/* MOBILE VIEW */
+@media screen and (max-width: 768px) {
+  .register-form h1 {
+    font-size: 6.5vw;
+  }
+  .register-form label {
+    margin-bottom: 0;
+    font-size: 4vw;
+  }
+  .register-form .btn {
+    margin: auto;
+    width: auto;
+    height: auto;
+  }
+
+  .register-form .form-group {
+    margin-bottom: 0.5rem;
+  }
+
+  /* login page */
+
+  .register-form,
+  .login-form {
+    font-size: 4.5vw;
+    width: 40vw;
+    height: 70vw;
+  }
+  .login-form > button {
+    width: auto;
+    height: auto;
+  }
+  .login-form > h1 {
+    font-size: 6.5vw;
+  }
+  .login-form label {
+    font-size: 4vw;
+  }
+  .register-form-background,
+  .login-form-background {
+    width: 85vw;
+    height: 85vw;
+    border-radius: 28vw;
+    margin: 15vh auto;
+  }
+}

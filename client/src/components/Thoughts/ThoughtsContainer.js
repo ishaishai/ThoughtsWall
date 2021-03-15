@@ -1,6 +1,6 @@
 import Thought from "./Thought";
-import { thoughtsColors } from "./thoughtsColors";
 import Masonry from "react-masonry-css";
+import "../../styles/Thoughts.css";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -22,7 +22,6 @@ const ThoughtsContainer = ({ thoughts }) => {
       >
         {thoughts.map((thought, i) => (
           <Thought
-            color={thoughtsColors[getRandomInt(thoughtsColors.length)]}
             key={i}
             id={thought["_id"]}
             date={thought.date}
