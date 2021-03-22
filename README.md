@@ -40,4 +40,4 @@ Im about to add also a chat messenger box (still working on it) and need to add 
 ![register](https://user-images.githubusercontent.com/36458741/111218444-68f4b180-85df-11eb-99dc-5f193eb6f48d.png)
 
 
-### soon other screens like Profile, Private chat and User Thoughts-Comments managing will be uploaded
+### soon other screens like Profile and User Thoughts-Comments managing will be uploaded
