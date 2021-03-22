@@ -9,6 +9,12 @@
   height: min-content;
   margin: auto;
 }
+.profile-ticket form {
+  height: inherit;
+  width: inherit;
+  display: inherit;
+  flex-direction: inherit;
+}
 .profile-ticket .card {
   border-radius: unset;
   width: 50vw;
@@ -21,6 +27,43 @@
   width: 20vw;
 }
 
+.profile-id .profile-img-uploader {
+  border-radius: 5vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  /* border: silver 10px solid; */
+  box-shadow: 0px 10px 50px 10px grey;
+  /* border: rgba(245, 193, 109, 0.6) 10px solid; */
+  width: 10vw;
+  height: 10vw;
+  align-self: center;
+  margin: 1.2vw auto;
+  font-weight: 500;
+}
+
+.profile-id .img-attempt-box {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0.8vw auto;
+}
+.profile-id .profile-img-attempt-delete {
+  position: relative;
+  margin-left: auto;
+  width: 1.2vw;
+  height: 1.2vw;
+  cursor: pointer;
+  color: rgb(212, 30, 30);
+}
+
+.profile-id .profile-image-uploader-icon {
+  margin-bottom: 0.5vw;
+  height: 2vw;
+  width: 2vw;
+}
+
 .profile-id .card-img-top {
   border-radius: 5vw;
   /* border: silver 10px solid; */
@@ -28,7 +71,7 @@
   /* border: rgba(245, 193, 109, 0.6) 10px solid; */
   width: 10vw;
   height: 10vw;
-  margin: 2vw auto;
+  margin: 1.2vw auto;
 }
 
 .profile-id .basic-details {
@@ -63,14 +106,6 @@
   bottom: 2vw;
 }
 
-.chat-btn {
-  width: fit-content;
-  height: fit-content;
-  position: fixed;
-  right: 2vw;
-  bottom: 2vw;
-}
-
 @media screen and (max-width: 768px) {
   .profile-ticket {
     flex-direction: column;
@@ -80,10 +115,36 @@
   .profile-ticket .profile-id {
     width: auto;
   }
+
+  .profile-id .profile-img-attempt-delete {
+    height: 5vw;
+    width: 5vw;
+  }
   .profile-id .card-img-top {
     width: 40vw;
     height: 40vw;
     border-radius: 40vw;
+  }
+
+  .profile-id .profile-img-uploader {
+    border-radius: 40vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* border: silver 10px solid; */
+    box-shadow: 0px 10px 50px 10px grey;
+    /* border: rgba(245, 193, 109, 0.6) 10px solid; */
+    width: 40vw;
+    height: 40vw;
+    margin: 2vw auto !important;
+    font-weight: 500;
+  }
+
+  .profile-id .profile-image-uploader-icon {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 8vw !important;
   }
   .profile-id .basic-details {
     text-align: center;

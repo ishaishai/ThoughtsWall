@@ -1,3 +1,19 @@
+.mythoughts-title {
+  color: #f5c16d;
+  font-family: "Bebas Neue", cursive;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  font-size: 3.5rem;
+  width: fit-content;
+  margin: 2vw auto;
+  border: snow solid;
+  /* border-bottom: 1vw; */
+  border-top: 0px;
+  border-radius: 20vw;
+}
+
 .thoughts-container {
   justify-content: center;
   flex-wrap: wrap;

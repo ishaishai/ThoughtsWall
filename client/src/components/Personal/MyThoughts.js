@@ -26,7 +26,7 @@ const MyThoughts = ({ history, isLoading, user, error }) => {
   }
   return (
     <div>
-      My Thoughts
+      <div className="mythoughts-title">My Thoughts</div>
       <ThoughtContainer thoughts={thoughts}></ThoughtContainer>
     </div>
   );

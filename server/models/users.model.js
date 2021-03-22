@@ -13,6 +13,10 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  img: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Images",
+  },
   Thoughts: [
     {
       type: mongoose.Schema.Types.ObjectId,
