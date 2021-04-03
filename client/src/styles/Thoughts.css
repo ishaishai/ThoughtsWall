@@ -23,9 +23,10 @@
   height: max-content;
 }
 .card {
+  border-radius: 3.25rem !important;
+
   width: 18rem;
   margin: 1vw 0;
-  background-color: #e1e5e7;
   transform: scale(1);
   transition: transform 0.8s ease;
   animation: show-up-login-form 0.8s;
@@ -36,13 +37,17 @@
   flex-direction: column;
 }
 
+.card-body p {
+  /* color: white; */
+}
+
 /* hover-card */
 .hover-thought-card {
   z-index: 3;
   position: absolute !important;
   top: 25%;
   left: 40%;
-  transform: scale(1.5);
+  transform: scale(2.5);
   transition: transform 1.2s ease;
   /* , top 1.2s ease, left 1.2s ease; */
   /* transition: font-size 10.2s ease; */
@@ -50,6 +55,7 @@
 
 .thoughtTogglesBox {
   display: flex;
+  margin-top: 3vw;
 }
 .toggleThoughtBtn,
 .toggleCommentsBtn {
@@ -57,11 +63,13 @@
   margin: 0 auto;
   position: relative;
   font-size: 0.6rem;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 900;
   /* position: absolute; */
 }
 
 .card-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
   display: block;
   width: fit-content;
   align-self: flex-end;

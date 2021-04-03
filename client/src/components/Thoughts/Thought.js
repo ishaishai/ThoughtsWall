@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
 import "../../styles/Thoughts.css";
+
 const Thought = ({ user, id, color, date, owner, text }) => {
   const [chosen, setChosen] = useState(false);
   const [showComments, setShowComments] = useState(false);
@@ -32,19 +33,24 @@ const Thought = ({ user, id, color, date, owner, text }) => {
           backgroundColor: "transparent",
           width: "10rem",
           height: `${backupHeight}`,
+          border: "none",
         }}
       ></Card>
-      <Card ref={cardRef} className={`${chosen ? "hover-thought-card" : ""} `}>
+      <Card
+        ref={cardRef}
+        className={`${chosen ? "hover-thought-card" : ""} `}
+        style={{ backgroundColor: color }}
+      >
         <Card.Body>
           <Card.Text>{text}</Card.Text>
-          <Card.Subtitle className="mb-2 text-muted">
+          <Card.Subtitle className="mb-2">
             Shared {date} by {owner}
           </Card.Subtitle>
           <div className="thoughtTogglesBox">
             {chosen && (
               <Button
                 className="toggleCommentsBtn"
-                variant="info"
+                variant="light"
                 onClick={() => setShowComments(!showComments)}
               >
                 COMMENTS
@@ -52,7 +58,7 @@ const Thought = ({ user, id, color, date, owner, text }) => {
             )}
             <Button
               className="toggleThoughtBtn"
-              variant={`${chosen ? "danger" : "info"}`}
+              variant={`${chosen ? "danger" : "light"}`}
               onClick={focusThought}
             >
               {`${chosen ? "CLOSE" : "VIEW"}`}

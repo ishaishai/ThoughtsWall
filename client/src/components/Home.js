@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Thought from "../components/Thoughts/Thought";
 import Particles from "react-particles-js";
 import "../styles/App.css";
+import Welcome from "./Welcome";
 
 const Home = ({ user }) => {
   const [thoughts, setThoughts] = useState([]);
@@ -15,7 +16,7 @@ const Home = ({ user }) => {
 
   return (
     <div className="home">
-      <Particles
+      {/* <Particles
         style={{ position: "absolute" }}
         height="100%"
         width="100%"
@@ -37,7 +38,9 @@ const Home = ({ user }) => {
             },
           },
         }}
-      />
+      /> */}
+
+      <Welcome />
       <ThoughtsContainer thoughts={thoughts} />
     </div>
   );

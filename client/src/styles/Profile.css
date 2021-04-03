@@ -8,6 +8,7 @@
   flex-direction: row;
   height: min-content;
   margin: auto;
+  box-shadow: 1px 1px 10px darkslategrey;
 }
 .profile-ticket form {
   height: inherit;
@@ -16,7 +17,7 @@
   flex-direction: inherit;
 }
 .profile-ticket .card {
-  border-radius: unset;
+  border-radius: unset !important;
   width: 50vw;
   height: 30vw;
   margin: 0 !important;
