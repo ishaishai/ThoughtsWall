@@ -9,8 +9,6 @@ import Home from "./Home";
 import { fetchUser } from "../actions/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/App.css";
-// import "./App-Mobile.css";
-import CreateThought from "./Personal/CreateThought";
 import ProtectedRoute from "./ProtectedRoute";
 import { Nav } from "react-bootstrap";
 import Profile from "./Personal/Profile";
@@ -34,12 +32,6 @@ const App = ({ fetchUser, auth }) => {
             path="/my-thoughts"
             exact
             component={MyThoughts}
-          />
-          <ProtectedRoute
-            isLoggedIn={auth.user}
-            path="/create-thought"
-            exact
-            component={CreateThought}
           />
           <ProtectedRoute
             isLoggedIn={auth.user}

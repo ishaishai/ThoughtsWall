@@ -14,22 +14,100 @@
   border-radius: 20vw;
 }
 
-.thoughts-container {
+#Thoughts {
+  margin-top: 10vw;
+  display: flex;
+  flex-direction: column;
+}
+.create-thought-main-container {
+  margin-bottom: 5vw;
+  display: flex;
+  flex-direction: row;
+
   justify-content: center;
-  flex-wrap: wrap;
+}
+.create-thought-container {
   margin: auto;
   display: flex;
-  width: max-content;
+  flex-direction: row;
+  position: relative;
+  /* margin-left: 3vw;
+  margin-bottom: 10vw; */
   height: max-content;
+  border: none !important;
+  border-radius: 15vw !important;
+  background-color: darkslategrey !important;
+  height: 20vw !important;
+  width: 50vw;
+  justify-content: center !important;
 }
-.card {
-  border-radius: 3.25rem !important;
 
+.create-thought-container .card-body {
+  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  width: auto;
+}
+
+.create-thought-container .thoughtTogglesBox {
+  margin: auto;
+}
+.thinking-man-img {
+  position: relative;
+  margin-left: 10vw;
+  height: 30vh;
+}
+.thought-box {
+  margin: 1vw 0vw;
+
+  min-height: 20vh !important;
   width: 18rem;
-  margin: 1vw 0;
   transform: scale(1);
   transition: transform 0.8s ease;
   animation: show-up-login-form 0.8s;
+}
+.thought-box svg {
+  z-index: 3;
+  cursor: pointer;
+}
+
+.thought-box .thought-menu {
+  transition: all 0.5s linear;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  background-color: darkslategray;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.thought-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+.thought-menu li {
+  margin: 0.5vw 0;
+  color: white;
+  width: 100%;
+}
+.thought-menu-item {
+  margin: auto;
+  width: 100%;
+  cursor: pointer;
+}
+.thought-menu-item:hover {
+  background-color: #e98131;
+}
+.thought-box .card-body {
+  min-height: 20vh !important;
+  background-color: aliceblue !important;
+  padding: 0 !important;
 }
 
 .card-body {
@@ -45,9 +123,9 @@
 .hover-thought-card {
   z-index: 3;
   position: absolute !important;
-  top: 25%;
-  left: 40%;
-  transform: scale(2.5);
+  /* top: 200%;
+  left: 40%; */
+  transform: scale(2) translate(10px, 200px);
   transition: transform 1.2s ease;
   /* , top 1.2s ease, left 1.2s ease; */
   /* transition: font-size 10.2s ease; */
@@ -59,10 +137,11 @@
 }
 .toggleThoughtBtn,
 .toggleCommentsBtn {
-  width: fit-content;
-  margin: 0 auto;
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  width: 100%;
   position: relative;
-  font-size: 0.6rem;
+  font-size: 0.65rem !important;
   font-family: "Alegreya Sans SC", sans-serif;
   font-weight: 900;
   /* position: absolute; */
@@ -70,9 +149,18 @@
 
 .card-subtitle {
   font-size: 0.8rem !important;
-  display: block;
-  width: fit-content;
-  align-self: flex-end;
+  padding-left: 0.8vw;
+  padding-right: 0.5vw;
+  display: flex;
+  height: 2vw;
+  align-items: center;
+  justify-content: center;
+  place-content: space-between;
+  /* background-color: rgba(155, 89, 182, 0.85); */
+  background-color: darkslategrey;
+  width: 100%;
+  color: white;
+  margin-top: 0 !important;
 }
 
 /* Comments Modal */
@@ -130,18 +218,20 @@
   float: right;
 }
 
-.create-thought-container {
-  height: inherit;
-  display: flex;
-}
-
 .create-thought-container .card {
   margin: auto;
   width: 25rem;
   height: 10rem;
+  border-radius: 10vw;
+}
+.card .card-text {
+  width: 40vw;
+  margin: auto;
 }
 .create-thought-container .thoughtTogglesBox {
-  margin-top: auto;
+  margin-top: 4vw;
+  height: 3vw;
+  width: 8vw;
 }
 @keyframes create-thought-border-glow {
   0% {
@@ -156,9 +246,60 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card {
-    width: 10rem !important;
+  .create-thought-main-container {
+    flex-direction: column;
   }
+  .create-thought-container {
+    height: 45vw !important;
+    margin: 0;
+    align-items: center;
+    width: 100%;
+    border-radius: 0px !important;
+  }
+  .create-thought-container .card-body {
+    width: auto !important;
+    flex-direction: column;
+  }
+  .create-thought-container .card-text {
+    width: 80vw;
+  }
+  .create-thought-container .thoughtTogglesBox {
+    margin-top: 3vh !important;
+    width: 20vw;
+    height: 5vh;
+  }
+  .thoughtTogglesBox button {
+    border-radius: 15vw !important;
+  }
+  .thinking-man-img {
+    margin: 0 !important;
+    height: 20vh;
+  }
+
+  .welcome-logo-img {
+    width: 40vw !important;
+    height: 40vw !important;
+    margin-left: 0vw !important;
+    margin-right: 10vw !important;
+  }
+  .welcome-subcontainer {
+    margin: 0vw !important;
+  }
+  .welcome-title {
+    margin-left: 5vw;
+  }
+  .welcome-text {
+    margin-left: 5vw;
+  }
+  .thought-box {
+    width: 10rem !important;
+    margin: 2vw 1vw;
+  }
+  .thought-box .card-subtitle {
+    height: 3vw;
+    font-size: 0.45rem !important;
+  }
+
   .hover-thought-card {
     left: 18%;
     width: 15rem !important;
@@ -200,9 +341,7 @@
   .create-thought-container {
     height: 70vh;
   }
-  .create-thought-container .thoughtTogglesBox {
-    margin-top: 3vh !important;
-  }
+
   .create-thought-container .card {
     margin: auto;
     width: 20rem !important;

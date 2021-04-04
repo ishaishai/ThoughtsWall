@@ -6,12 +6,15 @@ import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
 import "../../styles/Thoughts.css";
+import { FaHamburger } from "react-icons/fa";
+import { RiMenuFoldLine } from "react-icons/ri";
 
 const Thought = ({ user, id, color, date, owner, text }) => {
   const [chosen, setChosen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [cardRef] = useState(React.createRef());
   const [backupHeight, setBackupHeight] = useState("");
+  const [collapse, setCollapse] = useState(true);
 
   useEffect(() => {
     setBackupHeight(`${cardRef.current.offsetHeight}px`);
@@ -22,12 +25,27 @@ const Thought = ({ user, id, color, date, owner, text }) => {
   }, [backupHeight]);
 
   const focusThought = () => {
+    revealThoughtMenu();
     setChosen(!chosen);
   };
 
+  const revealThoughtMenu = () => {
+    setCollapse(!collapse);
+  };
+
+  useEffect(() => {
+    let thoughtMenu = document.getElementById(id);
+
+    if (collapse) {
+      thoughtMenu.style.height = "0%";
+    } else {
+      thoughtMenu.style.height = "100%";
+    }
+  }, [collapse]);
   return (
     <>
-      <Card
+      <div
+        className="thought-box"
         style={{
           display: `${chosen ? "block" : "none"}`,
           backgroundColor: "transparent",
@@ -35,48 +53,59 @@ const Thought = ({ user, id, color, date, owner, text }) => {
           height: `${backupHeight}`,
           border: "none",
         }}
-      ></Card>
-      <Card
+      ></div>
+      <div
         ref={cardRef}
-        className={`${chosen ? "hover-thought-card" : ""} `}
-        style={{ backgroundColor: color }}
+        className={`thought-box ${chosen ? "hover-thought-card" : ""} `}
+        //style={{ backgroundColor: color }}
       >
         <Card.Body>
-          <Card.Text>{text}</Card.Text>
           <Card.Subtitle className="mb-2">
             Shared {date} by {owner}
+            {collapse ? (
+              <FaHamburger onClick={revealThoughtMenu} />
+            ) : (
+              <RiMenuFoldLine onClick={revealThoughtMenu} />
+            )}
           </Card.Subtitle>
-          <div className="thoughtTogglesBox">
-            {chosen && (
-              <Button
-                className="toggleCommentsBtn"
-                variant="light"
-                onClick={() => setShowComments(!showComments)}
-              >
-                COMMENTS
-              </Button>
-            )}
-            <Button
-              className="toggleThoughtBtn"
-              variant={`${chosen ? "danger" : "light"}`}
-              onClick={focusThought}
-            >
-              {`${chosen ? "CLOSE" : "VIEW"}`}
-            </Button>
+
+          <div id={id} className={`thought-menu`}>
+            <ul>
+              <li>
+                <div className="thought-menu-item">Profile</div>
+              </li>
+              <li>
+                <div className="thought-menu-item">Contact</div>
+              </li>
+              <li>
+                <div
+                  className="thought-menu-item"
+                  onClick={() => setShowComments(!showComments)}
+                >
+                  Comments
+                </div>
+              </li>
+              <li>
+                <div className="thought-menu-item" onClick={focusThought}>
+                  {`${chosen ? "Close" : "View"}`}
+                </div>
+              </li>
+            </ul>
           </div>
+
+          <Card.Text>{text}</Card.Text>
+          <div className="thoughtTogglesBox"></div>
         </Card.Body>
-        {chosen && (
-          <>
-            {showComments && (
-              <CommentsModal
-                id={id}
-                showComments={showComments}
-                setShowComments={setShowComments}
-              />
-            )}
-          </>
-        )}
-      </Card>
+        <>
+          {showComments && (
+            <CommentsModal
+              id={id}
+              showComments={showComments}
+              setShowComments={setShowComments}
+            />
+          )}
+        </>
+      </div>
     </>
   );
 };

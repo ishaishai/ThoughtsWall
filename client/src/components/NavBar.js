@@ -1,11 +1,4 @@
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/index";
@@ -63,14 +56,6 @@ const NavBar = ({ user, logout }) => {
               >
                 My Thoughts
               </Nav.Link>
-              <Nav.Link
-                onSelect={foldNavMenu}
-                as={Link}
-                to="/create-thought"
-                eventKey="5"
-              >
-                Create Thought
-              </Nav.Link>
               <Nav.Link onSelect={foldNavMenu} onClick={logout} eventKey="6">
                 Logout
               </Nav.Link>
@@ -87,10 +72,6 @@ const NavBar = ({ user, logout }) => {
             </Nav.Link>
           ) : null}
         </Nav>
-        {/* <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form> */}
       </Navbar.Collapse>
     </Navbar>
   );

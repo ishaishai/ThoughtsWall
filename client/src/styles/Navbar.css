@@ -1,5 +1,6 @@
 .welcome-msg {
-  color: whitesmoke;
+  color: rgba(155, 89, 182, 0.85);
+  font-weight: 700;
   margin: auto 1vw;
 }
 
@@ -12,6 +13,7 @@
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 1.5rem !important;
   color: darkslategrey !important;
+  outline: none;
 }
 .nav-items {
   font-family: "Bebas Neue", cursive;
@@ -28,5 +30,5 @@
 .nav-link:hover,
 .nav-link.active {
   border-radius: 30px;
-  background-color: #f5c16d;
+  background-color: rgba(233, 129, 49, 0.8);
 }

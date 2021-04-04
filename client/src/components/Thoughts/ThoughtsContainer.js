@@ -1,32 +1,32 @@
 import Thought from "./Thought";
 import Masonry from "react-masonry-css";
 import "../../styles/Thoughts.css";
+import CreateThought from "../Personal/CreateThought";
+import ThinkingMan from "../../assets/thinking-man.svg";
 
 const breakpointColumnsObj = {
   default: 4,
-  1000: 3,
+  1000: 4,
   700: 2,
 };
 
-// const colors = ["#1BA39C", "#66CC99", "#36D7B7", "#C8F7C5"];
-const colors = [
-  "#1BA39C",
-  "#66CC99",
-  "#36D7B7",
-  "#C8F7C5",
-  "#86E2D5",
-  "#89C4F4",
-  "#2C3E50",
-  "#4B77BE",
-];
-
+const colors = ["#309975", "#58b368", "#58b368", "#efeeb4"];
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
-const ThoughtsContainer = ({ thoughts }) => {
-  console.log(thoughts);
+const ThoughtsContainer = ({
+  toggleThoughtCreate = true,
+  getThoughts = null,
+  thoughts,
+}) => {
   return (
     <div id="Thoughts" style={{ height: "inherit", width: "100%" }}>
+      {toggleThoughtCreate ? (
+        <div className="create-thought-main-container">
+          <img className="thinking-man-img" src={ThinkingMan} />
+          <CreateThought getThoughts={getThoughts} />
+        </div>
+      ) : null}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

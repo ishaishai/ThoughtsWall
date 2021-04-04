@@ -18,6 +18,9 @@ body {
   height: inherit;
   width: 100%;
 }
+.welcome-component {
+  background-color: rgba(155, 89, 182, 0.85);
+}
 .welcome-container {
   margin: auto;
   height: 70vh;
@@ -26,16 +29,30 @@ body {
   box-shadow: 1px 1px 10px;
   display: flex;
   flex-direction: row;
-  background-color: #e98131;
+  background-color: rgb(233, 129, 49);
   border-top-left-radius: 100vw;
   border-top-right-radius: 100vw;
   margin-top: 5vw;
   transition: border-radius 0.8s linear;
 }
+
 .welcome-logo-img {
   width: 20vw;
   height: 20vw;
   margin-left: 10vw;
+  animation: scaling 2s;
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .welcome-subcontainer {
   font-family: "Montserrat Alternates", sans-serif;
@@ -81,9 +98,11 @@ body {
   width: auto;
 }
 .my-masonry-grid_column {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 2vw;
   background-clip: padding-box;
   width: 20% !important;
-  margin: 0px auto;
 }
 
 .Loading {
@@ -105,9 +124,33 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .welcome-container {
+    flex-direction: column;
+  }
+  .welcome-title {
+    font-size: 3.5rem;
+  }
+  .welcome-text {
+    font-size: 0.8rem;
+  }
+  .welcome-start-link {
+    margin: 15vw auto;
+  }
+  .welcome-start {
+    border-radius: 20vw;
+    width: 35vw;
+    height: 35vw;
+    box-shadow: 1px 1px 10px darkslategrey;
+    transition: width 0.8s linear, height 0.8s linear, border-radius 0.8s linear;
+  }
+  .welcome-start:hover {
+    box-shadow: none;
+  }
   .my-masonry-grid_column {
     width: 42% !important;
+    margin-top: 15vw;
   }
+
   .navbar-brand {
     font-size: 6vw;
   }

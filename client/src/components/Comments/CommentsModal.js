@@ -1,13 +1,13 @@
 import { Modal, Button, FormControl, Form } from "react-bootstrap";
 import Comment from "./Comment";
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Loader from "../Loader";
 import axios from "axios";
 
-const CommentsModal = ({ id, showComments, setShowComments }) => {
+const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
-  console.log(id);
   const addComment = async (e) => {
     e.preventDefault();
     const comment = { thoughtId: id, commentText: e.target[0].value };
@@ -63,23 +63,26 @@ const CommentsModal = ({ id, showComments, setShowComments }) => {
         )}
       </Modal.Body>
 
-      <Modal.Footer>
-        <Form onSubmit={addComment}>
-          <FormControl placeholder="Comment" />
+      {auth.user ? (
+        <Modal.Footer>
+          <Form onSubmit={addComment}>
+            <FormControl placeholder="Comment" />
 
-          <Button
-            variant="danger"
-            onClick={() => setShowComments(!showComments)}
-          >
-            Close
-          </Button>
-          <Button variant="info" type="submit">
-            Add Comment
-          </Button>
-        </Form>
-      </Modal.Footer>
+            <Button
+              variant="danger"
+              onClick={() => setShowComments(!showComments)}
+            >
+              Close
+            </Button>
+            <Button variant="info" type="submit">
+              Add Comment
+            </Button>
+          </Form>
+        </Modal.Footer>
+      ) : null}
     </Modal>
   );
 };
 
-export default CommentsModal;
+const mapStateToProps = ({ auth }) => ({ auth });
+export default connect(mapStateToProps, null)(CommentsModal);

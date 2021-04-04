@@ -27,7 +27,10 @@ const MyThoughts = ({ history, isLoading, user, error }) => {
   return (
     <div>
       <div className="mythoughts-title">My Thoughts</div>
-      <ThoughtContainer thoughts={thoughts}></ThoughtContainer>
+      <ThoughtContainer
+        toggleThoughtCreate={false}
+        thoughts={thoughts}
+      ></ThoughtContainer>
     </div>
   );
 };
