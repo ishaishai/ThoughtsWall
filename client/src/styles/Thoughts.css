@@ -303,6 +303,14 @@
     width: 20vw;
     height: 5vh;
   }
+  .create-thought-welcome-msg {
+    font-size: 1rem;
+  }
+  .create-thought-welcome-button {
+    font-size: 1rem !important;
+    width: 35vw;
+    height: 5vh;
+  }
   .thoughtTogglesBox button {
     border-radius: 15vw !important;
   }
