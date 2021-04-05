@@ -6,6 +6,7 @@ const thoughtsRoutes = require("./routes/thoughts.routes");
 const commentsRoutes = require("./routes/comments.routes");
 const authRoutes = require("./routes/auth.routes");
 const morgan = require("morgan");
+const cors = require("cors");
 //mongoose set
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -20,6 +21,7 @@ dbInstance.once("open", () => console.log("Connected to database"));
 
 const PORT = 5000;
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("tiny"));
 app.use(express.json());
