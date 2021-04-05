@@ -303,6 +303,9 @@
     width: 20vw;
     height: 5vh;
   }
+  .create-thought-welcome {
+    place-content: space-evenly;
+  }
   .create-thought-welcome-msg {
     font-size: 1rem;
   }
