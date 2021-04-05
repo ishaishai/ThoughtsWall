@@ -17,28 +17,26 @@ Im about to add also a messaging service (still working on it).
 ### Database is configured on MongoDB Atlas cloud.
 
 ## Screenshots from desktop view
-### Main screen - Thought Wall:
-![home](https://user-images.githubusercontent.com/36458741/111218182-13200980-85df-11eb-8896-8dd705735371.png)
+### Main screen - Welcome:
+![welcome-screen](https://user-images.githubusercontent.com/36458741/113594987-138d4c80-9641-11eb-911a-379c4e4644b7.png)
 
+### Main screen - Thoughts Wall:
+![thought-wall](https://user-images.githubusercontent.com/36458741/113595072-2f90ee00-9641-11eb-8e10-1902ef8dea68.png)
 
-### Main screen - Thought Pick:
-![view-thought](https://user-images.githubusercontent.com/36458741/111218381-511d2d80-85df-11eb-92ef-d31ce1a3ca0d.png )
-
-### Main screen - Thought Comments section:
-![view-recent-comments](https://user-images.githubusercontent.com/36458741/111218402-59756880-85df-11eb-9437-cacfda0fccc8.png)
+### Main screen - Thought Comments:
+![comments](https://user-images.githubusercontent.com/36458741/113595106-3a4b8300-9641-11eb-881c-6150f39c0e72.png)
 
 ### Profile Screen:
+![profile](https://user-images.githubusercontent.com/36458741/113595121-41729100-9641-11eb-8451-f306de343823.png)
 
-![my-profile-in-development](https://user-images.githubusercontent.com/36458741/111218458-6d20cf00-85df-11eb-9a58-e620581a923a.png)
-
-### Thought Create screen:
-![create-thought-in-development](https://user-images.githubusercontent.com/36458741/111218434-64c89400-85df-11eb-9fca-2d4968603f58.png)
-
-### Login Screen: 
-![login](https://user-images.githubusercontent.com/36458741/111218441-685c1b00-85df-11eb-99ca-d569705b3475.png)
+### User Thoughts Screen:
+![my-thoughts](https://user-images.githubusercontent.com/36458741/113620424-f8333900-9662-11eb-82fb-fbdf6fc5c46a.png)
 
 ### Register Screen:
-![register](https://user-images.githubusercontent.com/36458741/111218444-68f4b180-85df-11eb-99dc-5f193eb6f48d.png)
+![register-screen](https://user-images.githubusercontent.com/36458741/113620427-f8cbcf80-9662-11eb-8101-cb4bc38358b3.png)
+
+### Login Screen:
+![login-screen](https://user-images.githubusercontent.com/36458741/113620428-f9646600-9662-11eb-915b-55f1a24d7d96.png)
 
 
 ### soon other screens like Profile and User Thoughts-Comments managing will be uploaded
