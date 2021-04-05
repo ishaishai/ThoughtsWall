@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CreateThought = ({ auth, history, getThoughts }) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -11,37 +12,49 @@ const CreateThought = ({ auth, history, getThoughts }) => {
     const thoughtText = e.target[0].value;
     console.log(thoughtText);
     try {
-      if (auth.user === null) {
-        return;
-      }
       const response = await axios.post("/api/thoughts/create-thought", {
         thoughtText,
       });
       getThoughts();
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
   return (
     <Card className="create-thought-container">
-      <Form onSubmit={handleThought}>
-        <Card.Body>
-          <Card.Text>
-            <Form.Control placeholder="Enter your thought here" />
-          </Card.Text>
-          {/* <Card.Subtitle className="mb-2 text-muted">owner</Card.Subtitle> */}
-          <div className="thoughtTogglesBox">
-            <Button
-              className="toggleThoughtBtn"
-              type="submit"
-              variant="success"
-            >
-              SHARE
-            </Button>
+      {auth.user ? (
+        <Form onSubmit={handleThought}>
+          <Card.Body>
+            <Card.Text>
+              <Form.Control placeholder="Enter your thought here" />
+            </Card.Text>
+            {/* <Card.Subtitle className="mb-2 text-muted">owner</Card.Subtitle> */}
+            <div className="thoughtTogglesBox">
+              <Button
+                className="toggleThoughtBtn"
+                type="submit"
+                variant="success"
+              >
+                SHARE
+              </Button>
+            </div>
+          </Card.Body>
+        </Form>
+      ) : (
+        <div className="create-thought-welcome">
+          <div className="create-thought-welcome-msg">
+            Sign in to start sharing.
           </div>
-        </Card.Body>
-      </Form>
+          <Button
+            as={Link}
+            to="/login"
+            className="create-thought-welcome-button"
+          >
+            Sign-In
+          </Button>
+        </div>
+      )}
     </Card>
   );
 };
