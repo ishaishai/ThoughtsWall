@@ -6,8 +6,9 @@ So basically, the idea is to return to basics, where you can put your thoughts a
 ** Project still under development **
 - Used Technologies: React, React-bootstrap, MongoDB, Redux for state management.
 
-In a few days I'll upload a live demo of this app.
-Im about to add also a chat messenger box (still working on it) and need to add some anonymous posts (but not comments).
+https://thoughtswall.herokuapp.com
+
+Im about to add also a messaging service (still working on it).
 
 ## Steps to install:
 ### inside the project server and client directories: `npm install` - will install any node module needed for the server & client
