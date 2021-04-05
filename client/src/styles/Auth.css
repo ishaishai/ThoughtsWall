@@ -26,11 +26,11 @@
   height: 30vw;
   z-index: 2;
   background-color: rgba(104, 109, 224, 1);
-  box-shadow: 1px 1px 3px 1px;
   border-radius: 10vw;
   animation: rotate-front-form 1.5s infinite;
   animation-fill-mode: backwards;
   animation-iteration-count: 1;
+  color: white;
 }
 
 .register-form > .btn {
@@ -63,11 +63,11 @@
   position: relative;
   width: 30vw;
   height: 30vw;
-  background-color: #f5c16d;
-  box-shadow: 1px 1px 3px 1px;
+  background-color: #aa72c1;
   border-radius: 10vw;
   margin: auto;
   animation: rotate-back-login 1.5s;
+  color: white;
 }
 @keyframes rotate-back-login {
   0% {

@@ -52,8 +52,10 @@ const Thought = ({ user, id, color, date, owner, text }) => {
     console.log(contactOption);
     if (contactToggle) {
       contactOption.style.height = "100%";
+      contactOption.style.minHeight = "25vh";
     } else {
       contactOption.style.height = "0%";
+      contactOption.style.minHeight = "0vh";
     }
   }, [contactToggle]);
 

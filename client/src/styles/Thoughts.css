@@ -1,5 +1,5 @@
 .mythoughts-title {
-  color: #f5c16d;
+  color: #aa72c1;
   font-family: "Bebas Neue", cursive;
   margin: auto;
   display: flex;
@@ -8,12 +8,14 @@
   font-size: 3.5rem;
   width: fit-content;
   margin: 2vw auto;
-  border: snow solid;
+  border: #f5c16d solid;
   /* border-bottom: 1vw; */
   border-top: 0px;
   border-radius: 20vw;
 }
-
+.mythoughts-container #Thoughts {
+  margin-top: 3vw;
+}
 #Thoughts {
   margin-top: 10vw;
   display: flex;
@@ -60,8 +62,7 @@
 }
 .thought-box {
   margin: 1vw 0vw;
-
-  min-height: 20vh !important;
+  min-height: 24vh !important;
   width: 18rem;
   transform: scale(1);
   transition: transform 0.8s ease;
@@ -152,7 +153,7 @@
   padding-left: 0.8vw;
   padding-right: 0.5vw;
   display: flex;
-  height: 2vw;
+  height: 4vh;
   align-items: center;
   justify-content: center;
   place-content: space-between;
@@ -223,6 +224,10 @@
   width: 25rem;
   height: 10rem;
   border-radius: 10vw;
+}
+.create-thought-container form {
+  height: min-content;
+  margin: auto;
 }
 .card .card-text {
   width: 40vw;

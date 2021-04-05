@@ -1,6 +1,7 @@
 .contact-container {
   display: flex;
   width: 100%;
+  /* min-height: 25vh; */
   height: 0%;
   overflow: hidden;
   position: absolute;
@@ -35,7 +36,8 @@
   padding-left: 0.8vw;
   padding-right: 0.5vw;
   display: flex;
-  height: 2vw;
+  height: 5vh;
+
   align-items: center;
   justify-content: center;
   place-content: space-between;
