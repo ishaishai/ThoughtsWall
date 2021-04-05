@@ -1,0 +1,69 @@
+.contact-container {
+  display: flex;
+  width: 100%;
+  height: 0%;
+  overflow: hidden;
+  position: absolute;
+  background-color: aliceblue !important;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.contact-box .card-text {
+  height: 100%;
+}
+.contact-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-form-input {
+  width: 80%;
+  margin-top: 1vw;
+  border-radius: 1vw;
+  height: 5vw;
+}
+.contact-subtitle {
+  font-size: 0.8rem !important;
+  padding-left: 0.8vw;
+  padding-right: 0.5vw;
+  display: flex;
+  height: 2vw;
+  align-items: center;
+  justify-content: center;
+  place-content: space-between;
+  /* background-color: rgba(155, 89, 182, 0.85); */
+  background-color: darkslategrey;
+  width: 100%;
+  color: white;
+  margin-top: 0 !important;
+}
+
+.contact-buttons {
+  margin-bottom: 1vw;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-self: end;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-buttons > button {
+    font-size: 0.65rem;
+    font-weight: 500;
+  }
+  .contact-form-input {
+    display: flex;
+
+    font-size: 0.65rem;
+    height: 10vh;
+  }
+}

@@ -233,6 +233,9 @@
   height: 3vw;
   width: 8vw;
 }
+.thoughtTogglesBox .toggleThoughtBtn {
+  font-size: 0.8rem !important;
+}
 @keyframes create-thought-border-glow {
   0% {
     height: 30vw;
@@ -282,6 +285,14 @@
     margin-left: 0vw !important;
     margin-right: 10vw !important;
   }
+  .thought-menu ul {
+    margin: 0px auto;
+  }
+  .thought-menu li {
+    margin: 4vw auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
   .welcome-subcontainer {
     margin: 0vw !important;
   }
@@ -295,6 +306,7 @@
     width: 10rem !important;
     margin: 2vw 1vw;
   }
+
   .thought-box .card-subtitle {
     height: 3vw;
     font-size: 0.45rem !important;

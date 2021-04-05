@@ -8,6 +8,7 @@ import { Card } from "react-bootstrap";
 import "../../styles/Thoughts.css";
 import { FaHamburger } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
+import Contact from "../Personal/Contact";
 
 const Thought = ({ user, id, color, date, owner, text }) => {
   const [chosen, setChosen] = useState(false);
@@ -15,6 +16,7 @@ const Thought = ({ user, id, color, date, owner, text }) => {
   const [cardRef] = useState(React.createRef());
   const [backupHeight, setBackupHeight] = useState("");
   const [collapse, setCollapse] = useState(true);
+  const [contactToggle, setContactToggle] = useState(false);
 
   useEffect(() => {
     setBackupHeight(`${cardRef.current.offsetHeight}px`);
@@ -32,16 +34,29 @@ const Thought = ({ user, id, color, date, owner, text }) => {
   const revealThoughtMenu = () => {
     setCollapse(!collapse);
   };
-
+  const revealContact = () => {
+    setContactToggle(!contactToggle);
+    setCollapse(!collapse);
+  };
   useEffect(() => {
     let thoughtMenu = document.getElementById(id);
-
     if (collapse) {
       thoughtMenu.style.height = "0%";
     } else {
       thoughtMenu.style.height = "100%";
     }
   }, [collapse]);
+
+  useEffect(() => {
+    let contactOption = document.getElementById(`contact-${id}`);
+    console.log(contactOption);
+    if (contactToggle) {
+      contactOption.style.height = "100%";
+    } else {
+      contactOption.style.height = "0%";
+    }
+  }, [contactToggle]);
+
   return (
     <>
       <div
@@ -68,14 +83,16 @@ const Thought = ({ user, id, color, date, owner, text }) => {
               <RiMenuFoldLine onClick={revealThoughtMenu} />
             )}
           </Card.Subtitle>
-
+          <Contact setContactToggle={setContactToggle} id={id} />
           <div id={id} className={`thought-menu`}>
             <ul>
               <li>
                 <div className="thought-menu-item">Profile</div>
               </li>
               <li>
-                <div className="thought-menu-item">Contact</div>
+                <div className="thought-menu-item" onClick={revealContact}>
+                  Contact
+                </div>
               </li>
               <li>
                 <div

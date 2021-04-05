@@ -6,7 +6,7 @@ import ThinkingMan from "../../assets/thinking-man.svg";
 
 const breakpointColumnsObj = {
   default: 4,
-  1000: 4,
+  1000: 2,
   700: 2,
 };
 

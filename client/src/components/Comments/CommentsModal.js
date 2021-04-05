@@ -50,7 +50,7 @@ const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
       <Modal.Body>
         {isLoading ? (
           <Loader />
-        ) : (
+        ) : comments.length > 0 ? (
           comments
             .map((comment, i) => (
               <Comment
@@ -60,6 +60,8 @@ const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
               />
             ))
             .reverse()
+        ) : (
+          "No comments to show"
         )}
       </Modal.Body>
 
