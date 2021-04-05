@@ -47,16 +47,17 @@
 .create-thought-welcome {
   font-family: "Montserrat Alternates", sans-serif;
   height: 100%;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
-  place-content: space-evenly;
+  place-content: space-evenly !important;
 }
 .create-thought-welcome-button {
+  place-content: space-evenly;
   width: 10vw;
   height: 4vw;
   font-size: 1.5rem !important;
@@ -303,9 +304,7 @@
     width: 20vw;
     height: 5vh;
   }
-  .create-thought-welcome {
-    place-content: space-evenly;
-  }
+
   .create-thought-welcome-msg {
     font-size: 1rem;
   }
