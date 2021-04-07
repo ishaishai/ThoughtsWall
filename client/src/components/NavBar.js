@@ -8,14 +8,21 @@ import axios from "axios";
 
 const NavBar = ({ user, logout }) => {
   const [expanded, setExpanded] = useState(false);
-  const [logUser, setLogUser] = useState(false);
+  const [visited, setVisited] = useState(false);
+
   useEffect(async () => {
-    if (!logUser) {
-      setLogUser(true);
-      console.log(window.screen.width);
-      await axios.post("/api/log/");
+    if (!visited) {
+      setVisited(true);
+      const response = await axios.post(
+        "https://loggingapp-server.herokuapp.com/api/log",
+        {
+          source: "Thoughts-Wall",
+        }
+      );
+      console.log(response.data);
     }
   }, []);
+
   const foldNavMenu = () => {
     if (expanded) {
       setExpanded(false);
