@@ -2,12 +2,20 @@ import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Navbar.css";
+import axios from "axios";
 
 const NavBar = ({ user, logout }) => {
   const [expanded, setExpanded] = useState(false);
-
+  const [logUser, setLogUser] = useState(false);
+  useEffect(async () => {
+    if (!logUser) {
+      setLogUser(true);
+      console.log(window.screen.width);
+      await axios.post("/api/log/");
+    }
+  }, []);
   const foldNavMenu = () => {
     if (expanded) {
       setExpanded(false);

@@ -17,7 +17,6 @@ exports.getAllThoughts = async (req, res) => {
     thoughts.forEach((thought) => {
       thought.date = `${timeSince(thought.date)} ago`;
     });
-    console.log(thoughts);
     res.status(200).json(thoughts);
   } catch (error) {
     console.log(error.message);
