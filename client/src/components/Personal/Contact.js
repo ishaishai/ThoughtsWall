@@ -12,7 +12,7 @@ const Contact = ({ setContactToggle, id }) => {
           <form className="contact-form">
             <textarea
               className="contact-form-input"
-              placeHolder="Type your message here"
+              placeholder="Type your message here"
             />
 
             <div className="contact-buttons">

@@ -10,7 +10,7 @@ import { FaHamburger } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
 import Contact from "../Personal/Contact";
 
-const Thought = ({ user, id, color, date, owner, text }) => {
+const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [chosen, setChosen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [cardRef] = useState(React.createRef());
@@ -21,10 +21,6 @@ const Thought = ({ user, id, color, date, owner, text }) => {
   useEffect(() => {
     setBackupHeight(`${cardRef.current.offsetHeight}px`);
   }, []);
-
-  useEffect(() => {
-    console.log(backupHeight);
-  }, [backupHeight]);
 
   const focusThought = () => {
     revealThoughtMenu();
@@ -38,6 +34,7 @@ const Thought = ({ user, id, color, date, owner, text }) => {
     setContactToggle(!contactToggle);
     setCollapse(!collapse);
   };
+
   useEffect(() => {
     let thoughtMenu = document.getElementById(id);
     if (collapse) {
@@ -49,7 +46,7 @@ const Thought = ({ user, id, color, date, owner, text }) => {
 
   useEffect(() => {
     let contactOption = document.getElementById(`contact-${id}`);
-    console.log(contactOption);
+
     if (contactToggle) {
       contactOption.style.height = "100%";
       contactOption.style.minHeight = "25vh";
@@ -104,11 +101,21 @@ const Thought = ({ user, id, color, date, owner, text }) => {
                   Comments
                 </div>
               </li>
-              <li>
+              {owner === user.username ? (
+                <li>
+                  <div
+                    className="thought-menu-item delete"
+                    onClick={() => deleteThought(id)}
+                  >
+                    Delete
+                  </div>
+                </li>
+              ) : null}
+              {/* <li>
                 <div className="thought-menu-item" onClick={focusThought}>
                   {`${chosen ? "Close" : "View"}`}
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 

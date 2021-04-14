@@ -19,6 +19,10 @@ const ThoughtsContainer = ({
   getThoughts = null,
   thoughts,
 }) => {
+  const deleteThought = (id) => {
+    console.log(id);
+    ///delete thougtht
+  };
   return (
     <div id="Thoughts" style={{ height: "inherit", width: "100%" }}>
       {toggleThoughtCreate ? (
@@ -43,6 +47,7 @@ const ThoughtsContainer = ({
                 thought.thoughtAuthor ? thought.thoughtAuthor.username : null
               }
               text={thought.thoughtText}
+              deleteThought={deleteThought}
             />
           ))
           .reverse()}

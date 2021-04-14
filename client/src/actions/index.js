@@ -26,10 +26,10 @@ export const fetchUser = () => async (dispatch) => {
 
 export const login = (user, history) => async (dispatch) => {
   dispatch({ type: FETCH_USER_LOADING });
-  console.log(user);
+
   try {
     const response = await axios.post("/api/auth/sign-in", user);
-    console.log(response.data);
+
     dispatch({ type: FETCH_USER_SUCCESS, payload: response.data.userDetails });
     history.push("/");
   } catch (error) {
@@ -38,7 +38,6 @@ export const login = (user, history) => async (dispatch) => {
 };
 
 export const register = (user) => async (dispatch) => {
-  console.log(user);
   dispatch({ type: CREATE_USER_LOADING, payload: true });
   try {
     await axios.post("/api/auth/register", user);

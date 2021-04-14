@@ -101,7 +101,15 @@ const Profile = ({ user, searchedUser }) => {
             )}
             <div className="basic-details">
               <div className="profile-id-fullname">
-                {`${faker.name.firstName()} ${faker.name.lastName()}`}
+                {editToggle ? (
+                  `${faker.name.firstName()} ${faker.name.lastName()}`
+                ) : (
+                  <>
+                    <FormControl
+                      placeholder={`${profile.info || "Full name goes here"}`}
+                    />
+                  </>
+                )}
               </div>
               <div className="profile-id-age">30</div>
             </div>

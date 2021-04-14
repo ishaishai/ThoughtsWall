@@ -15,7 +15,6 @@ const Register = ({
   success,
 }) => {
   useEffect(() => {
-    console.log("clearing register");
     clearRegister();
   }, []);
 
@@ -26,7 +25,6 @@ const Register = ({
       username: e.target[1].value,
       password: e.target[2].value,
     };
-    console.log(user);
     register(user);
   };
 
