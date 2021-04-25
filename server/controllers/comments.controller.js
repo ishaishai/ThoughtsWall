@@ -2,6 +2,8 @@ const CommentsSchema = require("../models/comments.model");
 const UsersSchema = require("../models/users.model");
 const ThoughtsSchema = require("../models/thoughts.model");
 const { timeSince } = require("../utils/dateParser");
+const commentsModel = require("../models/comments.model");
+const usersModel = require("../models/users.model");
 exports.getCurrentUserComments = async (req, res) => {
   res.status(200).json("get current user comments");
 };
@@ -9,14 +11,17 @@ exports.getCurrentUserComments = async (req, res) => {
 exports.getThoughtComments = async (req, res) => {
   console.log(req.query.id);
   try {
-    thought = await ThoughtsSchema.findOne({ _id: req.query.id }).populate({
-      path: "comments",
-      populate: { path: "commentAuthor", CommentsSchema },
-    }).lean();
+    thought = await ThoughtsSchema.findOne({ _id: req.query.id })
+      .populate({
+        path: "comments",
+        populate: { path: "commentAuthor", CommentsSchema },
+      })
+      .lean();
     console.log(thought.comments);
     let comments = JSON.parse(JSON.stringify(thought.comments));
     comments = thought.comments.map((comment) => {
       return {
+        id: comment["_id"],
         author: comment.commentAuthor.username,
         commentText: comment.commentText,
         date: `${timeSince(comment.date)} ago`,
@@ -68,5 +73,23 @@ exports.addCommentToThought = async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ message: error.message });
+  }
+};
+
+exports.deleteComment = async (req, res) => {
+  console.log("DELETECOMMNET");
+  const owner = await commentsModel.findOne({ _id: req.params.id });
+  const user = await usersModel.findOne({ username: req.user.username });
+  console.log(typeof user["_id"], typeof owner.commentAuthor);
+  if (user["_id"].toString() === owner.commentAuthor.toString()) {
+    console.log("in");
+    const response = await commentsModel.deleteOne({ _id: req.params.id });
+    console.log(response);
+    if (response.n != 1) {
+      res.status(500).json({ msg: "error on delete from comments model" });
+    }
+    res.status(200).json({ msg: "ok" });
+  } else {
+    res.status(400).json({ msg: "not allowed" });
   }
 };

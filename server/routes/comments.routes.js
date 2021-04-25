@@ -9,4 +9,5 @@ router.post(
   requireToken,
   commentsCtrl.addCommentToThought
 );
+router.delete("/deleteComment/:id", requireToken, commentsCtrl.deleteComment);
 module.exports = router;

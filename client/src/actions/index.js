@@ -11,6 +11,12 @@ import {
   USER_LOGOUT_LOADING,
   CLEAR_REGISTER_FORM,
   CLEAR_LOGIN_FORM,
+  FETCH_THOUGTHS_LOADING,
+  FETCH_THOUGTHS_SUCCESS,
+  FETCH_THOUGTHS_FAILED,
+  DELETE_THOUGHT_LOADING,
+  DELETE_THOUGHT_SUCCESS,
+  DELETE_THOUGHT_FAILED,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -63,4 +69,24 @@ export const clearRegister = () => async (dispatch) => {
 
 export const clearLogin = () => async (dispatch) => {
   dispatch({ type: CLEAR_LOGIN_FORM });
+};
+
+export const getThoughts = () => async (dispatch) => {
+  dispatch({ type: FETCH_THOUGTHS_LOADING });
+  try {
+    const response = await axios.get("/api/thoughts/get-all-thoughts");
+    dispatch({ type: FETCH_THOUGTHS_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: FETCH_THOUGTHS_FAILED, payload: error.response.data.msg });
+  }
+};
+
+export const deleteThought = (id) => async (dispatch) => {
+  dispatch({ type: DELETE_THOUGHT_LOADING });
+  try {
+    const response = await axios.delete("/api/thoughts/delete-thought/" + id);
+    dispatch({ type: DELETE_THOUGHT_SUCCESS, payload: id });
+  } catch (error) {
+    dispatch({ type: DELETE_THOUGHT_FAILED, payload: error.response.data.msg });
+  }
 };

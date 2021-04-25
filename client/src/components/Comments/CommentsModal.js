@@ -25,6 +25,7 @@ const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
   };
 
   const getComments = async () => {
+    setIsLoading(true);
     const response = await axios.get("/api/comments/getThoughtComments", {
       params: { id },
     });
@@ -36,6 +37,20 @@ const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
   useEffect(async () => {
     getComments();
   }, []);
+
+  const deleteComment = async (id) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.delete("/api/comments/deleteComment/" + id);
+      setComments((prev) => prev.filter((item) => item.id !== id));
+      setIsLoading(false);
+    } catch (error) {
+      alert("Error on delete");
+    }
+  };
+  useEffect(() => {
+    console.log(comments);
+  }, [comments]);
   return (
     <Modal
       className="comments-modal"
@@ -53,9 +68,11 @@ const CommentsModal = ({ auth, id, showComments, setShowComments }) => {
           comments
             .map((comment, i) => (
               <Comment
+                id={comment.id}
                 author={comment.author}
                 text={comment.commentText}
                 date={comment.date}
+                deleteComment={deleteComment}
               />
             ))
             .reverse()

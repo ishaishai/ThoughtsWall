@@ -66,3 +66,17 @@ exports.getMyThoughts = async (req, res) => {
   console.log(userThoughts);
   res.status(200).json(userThoughts);
 };
+
+exports.deleteThought = async (req, res) => {
+  try {
+    const response = await ThoughtsSchema.deleteOne({
+      _id: req.params.id,
+    });
+    if (response.n === 1) {
+      res.status(200).json({ msg: "OK" });
+    }
+    res.status(500).json({ msg: "Error on delete" });
+  } catch (error) {
+    res.status(500).json({ msg: "Error on delete" });
+  }
+};

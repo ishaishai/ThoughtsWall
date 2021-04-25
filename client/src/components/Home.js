@@ -5,18 +5,9 @@ import { connect } from "react-redux";
 import "../styles/App.css";
 import Welcome from "./Welcome";
 import Loader from "./Loader";
+import { getThoughts } from "../actions/index";
 
-const Home = ({ user }) => {
-  const [thoughts, setThoughts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const getThoughts = async () => {
-    setIsLoading(true);
-    const response = await axios.get("/api/thoughts/get-all-thoughts");
-    setThoughts(response.data);
-    setIsLoading(false);
-  };
-
+const Home = ({ user, isLoading, thoughts, getThoughts }) => {
   useEffect(() => {
     getThoughts();
   }, []);
@@ -33,10 +24,11 @@ const Home = ({ user }) => {
   );
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, thoughts }) => ({
   isLoading: auth.isLoading,
   user: auth.user,
   error: auth.error,
+  thoughts: thoughts.thoughts,
 });
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, { getThoughts })(Home);

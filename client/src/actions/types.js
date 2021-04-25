@@ -12,5 +12,10 @@ export const USER_LOGOUT_LOADING = "user_logout_loading";
 export const USER_LOGOUT_SUCCESS = "user_logout_success";
 export const USER_LOGOUT_ERROR = "user_logout_error";
 
-// export const LOG_OUT = "log_out";
-// export const LOADING = "loading";
+export const FETCH_THOUGTHS_LOADING = "fetch_thoughts_loading";
+export const FETCH_THOUGTHS_SUCCESS = "fetch_thoughts_success";
+export const FETCH_THOUGTHS_FAILED = "fetch_thoughts_failed";
+
+export const DELETE_THOUGHT_LOADING = "delete_thought_loading";
+export const DELETE_THOUGHT_SUCCESS = "delete_thought_success";
+export const DELETE_THOUGHT_FAILED = "delete_thought_failed";

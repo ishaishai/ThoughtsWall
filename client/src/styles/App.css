@@ -20,10 +20,11 @@ body {
 }
 .welcome-component {
   background-color: rgba(155, 89, 182, 0.85);
+  height: 100vh;
 }
 .welcome-container {
   margin: auto;
-  height: 70vh;
+  height: 75vh;
   width: 80vw;
   margin-bottom: 5vw;
   box-shadow: 1px 1px 10px;

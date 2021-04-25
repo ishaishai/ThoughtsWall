@@ -9,6 +9,7 @@ import "../../styles/Thoughts.css";
 import { FaHamburger } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
 import Contact from "../Personal/Contact";
+import { deleteThought } from "../../actions/index";
 
 const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [chosen, setChosen] = useState(false);
@@ -136,10 +137,11 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   );
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, thoughts }) => ({
   isLoading: auth.isLoading,
   user: auth.user,
   error: auth.error,
+  thoughtsLoading: thoughts.isLoading,
 });
 
-export default connect(mapStateToProps, null)(Thought);
+export default connect(mapStateToProps, { deleteThought })(Thought);
