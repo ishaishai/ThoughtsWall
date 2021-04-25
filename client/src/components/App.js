@@ -12,6 +12,7 @@ import "../styles/App.css";
 import ProtectedRoute from "./ProtectedRoute";
 import { Nav } from "react-bootstrap";
 import Profile from "./Personal/Profile";
+import ChatNav from "./ChatNav";
 
 const App = ({ fetchUser, auth }) => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const App = ({ fetchUser, auth }) => {
             component={Profile}
           />
         </Switch>
+        {auth.user && <ChatNav />}
       </Router>
     </div>
   );

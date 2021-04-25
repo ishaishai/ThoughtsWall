@@ -103,7 +103,7 @@
 .edit-btn {
   width: fit-content;
   height: fit-content;
-  position: fixed;
+  position: absolute;
   right: 15vw;
   bottom: 2vw;
 }
