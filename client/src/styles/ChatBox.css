@@ -1,0 +1,13 @@
+.chats-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  bottom: -100vh;
+  transition: all ease 0.8s;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.show-chat {
+  bottom: 0vh;
+}

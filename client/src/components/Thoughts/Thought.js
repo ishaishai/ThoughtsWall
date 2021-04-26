@@ -83,16 +83,18 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
               <RiMenuFoldLine onClick={revealThoughtMenu} />
             )}
           </Card.Subtitle>
-          <Contact setContactToggle={setContactToggle} id={id} />
+          <Contact setContactToggle={setContactToggle} owner={owner} id={id} />
           <div id={id} className={`thought-menu`}>
             <ul>
               <li>
                 <div className="thought-menu-item">Profile</div>
               </li>
               <li>
-                <div className="thought-menu-item" onClick={revealContact}>
-                  Contact
-                </div>
+                {user && (
+                  <div className="thought-menu-item" onClick={revealContact}>
+                    Contact
+                  </div>
+                )}
               </li>
               <li>
                 <div

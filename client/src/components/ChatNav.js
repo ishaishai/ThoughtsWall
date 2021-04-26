@@ -1,6 +1,8 @@
 import "../styles/ChatNav.css";
-
+import ChatBox from "./Personal/ChatBox";
+import { useState, useEffect } from "react";
 const ChatNav = () => {
+  const [chat, setChat] = useState(null);
   const chats = [
     {
       user: "ishaishai",
@@ -10,11 +12,20 @@ const ChatNav = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    console.log(chat);
+  }, [chat]);
   return (
     <div className="chatnav-container">
       {chats.map((item) => {
-        return <div className="chat-toggle-item">{item.user}</div>;
+        return (
+          <div className="chat-toggle-item" onClick={() => setChat(item)}>
+            {item.user}
+          </div>
+        );
       })}
+      <ChatBox messages={chat} />
     </div>
   );
 };

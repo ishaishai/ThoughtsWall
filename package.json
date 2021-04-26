@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "devstart": "nodemon app.js",
-    "start": "nodemon app.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Ishai Yaish",
   "license": "ISC",

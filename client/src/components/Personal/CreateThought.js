@@ -10,7 +10,6 @@ const CreateThought = ({ auth, history, getThoughts }) => {
   const handleThought = async (e) => {
     e.preventDefault();
     const thoughtText = e.target[0].value;
-    thoughtText;
     try {
       const response = await axios.post("/api/thoughts/create-thought", {
         thoughtText,
