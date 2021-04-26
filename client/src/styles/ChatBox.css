@@ -1,4 +1,6 @@
 .chats-container {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -10,4 +12,49 @@
 
 .show-chat {
   bottom: 0vh;
+}
+
+.chat-container {
+  height: 60vh;
+  width: 40vw;
+  border-radius: 1vw;
+  bottom: 30%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(148, 0, 211, 0.65);
+  transition: all ease 1.8s;
+}
+
+.message-container {
+  overflow: hidden;
+  width: 90%;
+  word-break: keep-all;
+  background-color: floralwhite;
+  margin: 1vw 0;
+  min-height: 10vh;
+}
+
+.message-right {
+  margin-left: auto;
+  border-top-left-radius: 10vw;
+  border-bottom-left-radius: 10vw;
+}
+.message-left {
+  border-top-right-radius: 10vw;
+  border-bottom-right-radius: 10vw;
+}
+
+.message-author {
+  color: white;
+  padding: 0 2vw;
+  position: relative;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.message-body {
+  padding: 0 1vw;
 }

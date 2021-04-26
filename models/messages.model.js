@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
 const messagesSchema = new mongoose.Schema({
-  user: {
+  from: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Users",
   },
-  message: [
+  body: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Messages",
+      type: String,
+      required: true,
     },
   ],
   date: {

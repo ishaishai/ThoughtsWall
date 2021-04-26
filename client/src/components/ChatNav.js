@@ -1,14 +1,17 @@
 import "../styles/ChatNav.css";
 import ChatBox from "./Personal/ChatBox";
 import { useState, useEffect } from "react";
-const ChatNav = () => {
+import { connect } from "react-redux";
+
+const ChatNav = ({ auth }) => {
   const [chat, setChat] = useState(null);
   const chats = [
     {
-      user: "ishaishai",
+      _id: "123",
+      users: ["ishaishai", "bla"],
       messages: [
-        { user: "ishaishai", message: "hello", date: "babab" },
-        { user: "me", message: "hello", date: "babab" },
+        { from: "ishaishai", body: "hello", date: "123" },
+        { from: "bla", body: "hello", date: "142" },
       ],
     },
   ];
@@ -21,13 +24,19 @@ const ChatNav = () => {
       {chats.map((item) => {
         return (
           <div className="chat-toggle-item" onClick={() => setChat(item)}>
-            {item.user}
+            {item.users.filter((user) => user !== auth.user.username)[0]}
           </div>
         );
       })}
-      <ChatBox messages={chat} />
+      <ChatBox
+        user={auth.user.username}
+        messages={chat}
+        setToggleChatBox={setChat}
+      />
     </div>
   );
 };
 
-export default ChatNav;
+const mapStateToProps = ({ auth }) => ({ auth });
+
+export default connect(mapStateToProps, null)(ChatNav);

@@ -29,6 +29,12 @@ const usersSchema = new mongoose.Schema({
       ref: "Comment",
     },
   ],
+  Chats: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Chats",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Users", usersSchema);
