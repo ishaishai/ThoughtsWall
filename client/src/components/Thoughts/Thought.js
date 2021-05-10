@@ -10,6 +10,8 @@ import { FaHamburger } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
 import Contact from "../Personal/Contact";
 import { deleteThought } from "../../actions/index";
+import ChatBox from "../Chat/ChatBox";
+import { chosenChatContext } from "../App";
 
 const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [chosen, setChosen] = useState(false);
@@ -18,6 +20,7 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [backupHeight, setBackupHeight] = useState("");
   const [collapse, setCollapse] = useState(true);
   const [contactToggle, setContactToggle] = useState(false);
+  const { chatId, setChatId } = React.useContext(chosenChatContext);
 
   useEffect(() => {
     setBackupHeight(`${cardRef.current.offsetHeight}px`);
@@ -45,18 +48,6 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
     }
   }, [collapse]);
 
-  useEffect(() => {
-    let contactOption = document.getElementById(`contact-${id}`);
-
-    if (contactToggle) {
-      contactOption.style.height = "100%";
-      contactOption.style.minHeight = "25vh";
-    } else {
-      contactOption.style.height = "0%";
-      contactOption.style.minHeight = "0vh";
-    }
-  }, [contactToggle]);
-
   return (
     <>
       <div
@@ -83,7 +74,7 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
               <RiMenuFoldLine onClick={revealThoughtMenu} />
             )}
           </Card.Subtitle>
-          <Contact setContactToggle={setContactToggle} owner={owner} id={id} />
+
           <div id={id} className={`thought-menu`}>
             <ul>
               <li>
@@ -91,7 +82,10 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
               </li>
               <li>
                 {user && (
-                  <div className="thought-menu-item" onClick={revealContact}>
+                  <div
+                    className="thought-menu-item"
+                    onClick={() => setChatId(0)}
+                  >
                     Contact
                   </div>
                 )}

@@ -3,7 +3,7 @@
   flex-direction: column;
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   left: 0;
   bottom: -100vh;
   transition: all ease 0.8s;
@@ -11,7 +11,7 @@
 }
 
 .show-chat {
-  bottom: 0vh;
+  bottom: 5vh;
 }
 
 .chat-container {
@@ -28,15 +28,8 @@
   transition: all ease 1.8s;
 }
 
-.message-container {
-  overflow: hidden;
-  width: 90%;
-  word-break: keep-all;
-  background-color: floralwhite;
-  margin: 1vw 0;
-  min-height: 10vh;
+.message {
 }
-
 .message-right {
   margin-left: auto;
   border-top-left-radius: 10vw;
@@ -57,4 +50,8 @@
 
 .message-body {
   padding: 0 1vw;
+}
+
+.message-header span {
+  display: none;
 }

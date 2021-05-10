@@ -3,11 +3,6 @@
     font-size: 6vw;
   }
 
-  .nav-link {
-    font-size: 3vw;
-    margin: auto;
-  }
-
   .navbar-nav {
     margin: auto;
     width: fit-content;
@@ -23,7 +18,7 @@
     flex-direction: column;
   }
   .welcome-msg {
-    font-size: 3vw;
+    font-size: 1.5rem;
   }
 
   /* .commentsShowbtn {

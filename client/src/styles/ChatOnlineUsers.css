@@ -1,0 +1,49 @@
+.user-pick-container {
+  background-color: rgba(47, 79, 79, 0.6);
+  left: 0;
+  width: 15vw;
+  position: fixed;
+  left: -50vw;
+  bottom: 0vh;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  transition: all ease 0.8s;
+}
+
+.show-users-pick {
+  left: 0vw;
+}
+
+.user-pick-title {
+  color: whitesmoke;
+  font-family: "Montserrat Alternates", sans-serif;
+  align-self: center;
+  width: max-content;
+}
+.online-users-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-toggle-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  height: 3vh;
+  bottom: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  background-color: darkseagreen;
+  transition: all ease 0.8s;
+  margin: 0.5vh 0;
+}
+
+.chat-toggle-item:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

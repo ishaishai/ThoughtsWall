@@ -14,11 +14,6 @@ body {
   height: 100%;
 }
 
-.App {
-  height: inherit;
-  width: 100%;
-}
-
 .my-masonry-grid {
   margin-left: auto;
   margin-right: auto;
