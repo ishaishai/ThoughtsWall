@@ -12,42 +12,35 @@ import "../styles/App.css";
 import ProtectedRoute from "./ProtectedRoute";
 import { Nav } from "react-bootstrap";
 import Profile from "./Personal/Profile";
-import ChatNav from "./Chat/ChatNav";
-
-export const chosenChatContext = React.createContext(null);
 
 const App = ({ fetchUser, auth }) => {
-  const [chatId, setChatId] = useState(null);
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
 
   return (
     <div className="App">
-      <chosenChatContext.Provider value={{ chatId, setChatId }}>
-        <Router>
-          <NavBar />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
 
-            <ProtectedRoute
-              isLoggedIn={auth.user}
-              path="/my-thoughts"
-              exact
-              component={MyThoughts}
-            />
-            <ProtectedRoute
-              isLoggedIn={auth.user}
-              path="/profile"
-              exact
-              component={Profile}
-            />
-          </Switch>
-          {auth.user && <ChatNav />}
-        </Router>
-      </chosenChatContext.Provider>
+          <ProtectedRoute
+            isLoggedIn={auth.user}
+            path="/my-thoughts"
+            exact
+            component={MyThoughts}
+          />
+          <ProtectedRoute
+            isLoggedIn={auth.user}
+            path="/profile"
+            exact
+            component={Profile}
+          />
+        </Switch>
+      </Router>
     </div>
   );
 };

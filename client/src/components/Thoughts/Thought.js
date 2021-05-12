@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { BiShow } from "react-icons/bi";
 import CommentsModal from "../Comments/CommentsModal";
-import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
 import "../../styles/Thoughts.css";
 import { FaHamburger } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
-import Contact from "../Personal/Contact";
 import { deleteThought } from "../../actions/index";
-import ChatBox from "../Chat/ChatBox";
-import { chosenChatContext } from "../App";
 
 const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [chosen, setChosen] = useState(false);
@@ -19,8 +14,6 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   const [cardRef] = useState(React.createRef());
   const [backupHeight, setBackupHeight] = useState("");
   const [collapse, setCollapse] = useState(true);
-  const [contactToggle, setContactToggle] = useState(false);
-  const { chatId, setChatId } = React.useContext(chosenChatContext);
 
   useEffect(() => {
     setBackupHeight(`${cardRef.current.offsetHeight}px`);
@@ -32,10 +25,6 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
   };
 
   const revealThoughtMenu = () => {
-    setCollapse(!collapse);
-  };
-  const revealContact = () => {
-    setContactToggle(!contactToggle);
     setCollapse(!collapse);
   };
 
@@ -81,16 +70,6 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
                 <div className="thought-menu-item">Profile</div>
               </li>
               <li>
-                {user && (
-                  <div
-                    className="thought-menu-item"
-                    onClick={() => setChatId(0)}
-                  >
-                    Contact
-                  </div>
-                )}
-              </li>
-              <li>
                 <div
                   className="thought-menu-item"
                   onClick={() => setShowComments(!showComments)}
@@ -108,11 +87,6 @@ const Thought = ({ user, id, color, date, owner, text, deleteThought }) => {
                   </div>
                 </li>
               ) : null}
-              {/* <li>
-                <div className="thought-menu-item" onClick={focusThought}>
-                  {`${chosen ? "Close" : "View"}`}
-                </div>
-              </li> */}
             </ul>
           </div>
 

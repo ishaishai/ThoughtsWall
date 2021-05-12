@@ -17,8 +17,6 @@ import {
   DELETE_THOUGHT_LOADING,
   DELETE_THOUGHT_SUCCESS,
   DELETE_THOUGHT_FAILED,
-  SEND_MESSAGE_LOADING,
-  SEND_MESSAGE_ERROR,
 } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
@@ -90,14 +88,5 @@ export const deleteThought = (id) => async (dispatch) => {
     dispatch({ type: DELETE_THOUGHT_SUCCESS, payload: id });
   } catch (error) {
     dispatch({ type: DELETE_THOUGHT_FAILED, payload: error.response.data.msg });
-  }
-};
-
-export const sendMessage = (message) => async (dispatch) => {
-  dispatch({ type: SEND_MESSAGE_LOADING });
-  try {
-    const response = await axios.post("/api/chats/send-message", message);
-  } catch (error) {
-    dispatch({ type: SEND_MESSAGE_ERROR, payload: error.response.data.msg });
   }
 };

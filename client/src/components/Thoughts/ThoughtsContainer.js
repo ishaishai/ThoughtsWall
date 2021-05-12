@@ -4,13 +4,6 @@ import "../../styles/Thoughts.css";
 import CreateThought from "../Personal/CreateThought";
 import ThinkingMan from "../../assets/thinking-man.svg";
 
-const breakpointColumnsObj = {
-  default: 4,
-  1000: 2,
-  700: 2,
-};
-
-const colors = ["#309975", "#58b368", "#58b368", "#efeeb4"];
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
@@ -19,6 +12,14 @@ const ThoughtsContainer = ({
   thoughts,
   getThoughts,
 }) => {
+  const breakpointColumnsObj = {
+    default: thoughts.length < 4 ? thoughts.length : 4,
+    1000: 2,
+    700: 2,
+  };
+
+  const colors = ["#309975", "#58b368", "#58b368", "#efeeb4"];
+  console.log(thoughts);
   return (
     <div id="Thoughts" style={{ height: "inherit", width: "100%" }}>
       {toggleThoughtCreate ? (

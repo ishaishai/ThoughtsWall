@@ -5,17 +5,9 @@ const usersRoutes = require("./routes/users.routes");
 const thoughtsRoutes = require("./routes/thoughts.routes");
 const commentsRoutes = require("./routes/comments.routes");
 const authRoutes = require("./routes/auth.routes");
-const chatsRoutes = require("./routes/chats.routes");
 const morgan = require("morgan");
 const cors = require("cors");
-const http = require("http");
-const server = http.createServer(app);
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  },
-});
+
 //mongoose set
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -40,17 +32,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/thoughts", thoughtsRoutes);
 app.use("/api/comments", commentsRoutes);
-app.use("/api/chats", chatsRoutes);
 
-server.listen(PORT, () => {
-  console.log(`Server listening port ${PORT}`);
-});
-
-io.on("connection", (socket) => {
-  console.log(socket, " connected");
-  server.emit("CONNECTED", "connected successfully");
-});
-
-io.on("Thanks", (socket) => {
-  console.log("Thanks.");
+app.listen(PORT, () => {
+  console.log("server is listening on port ", PORT);
 });

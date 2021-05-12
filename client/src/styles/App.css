@@ -105,7 +105,7 @@ body {
   flex-direction: column;
   margin: 0px 2vw;
   background-clip: padding-box;
-  width: 20% !important;
+  width: 100% !important;
 }
 
 .Loading {
