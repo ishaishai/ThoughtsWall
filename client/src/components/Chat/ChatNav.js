@@ -5,11 +5,30 @@ import { connect } from "react-redux";
 import { chosenChatContext } from "../App";
 import ChatOnlineUsers from "./ChatOnlineUsers";
 import { BsChat } from "react-icons/bs";
+import { io } from "socket.io-client";
 
 const ChatNav = ({ auth }) => {
+  const [socket, setSocket] = useState(null);
   const [chat, setChat] = useState(null);
   const { chatId, setChatId } = React.useContext(chosenChatContext);
   const [toggleChatUsers, setToggleChatUsers] = useState(false);
+
+  useEffect(() => {
+    console.log(auth);
+    auth &&
+      setSocket(
+        io.connect(`ws://localhost:5000`, {
+          query: { user: auth.user },
+        })
+      );
+  }, []);
+
+  useEffect(() => {
+    socket?.on("welcome", (message) => {
+      console.log(message);
+      socket.emit("Thanks");
+    });
+  }, [socket]);
   //addchat function to pass to chatonlineusers
 
   // useEffect(() => {

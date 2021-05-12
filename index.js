@@ -8,6 +8,14 @@ const authRoutes = require("./routes/auth.routes");
 const chatsRoutes = require("./routes/chats.routes");
 const morgan = require("morgan");
 const cors = require("cors");
+const http = require("http");
+const server = http.createServer(app);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 //mongoose set
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -34,6 +42,15 @@ app.use("/api/thoughts", thoughtsRoutes);
 app.use("/api/comments", commentsRoutes);
 app.use("/api/chats", chatsRoutes);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server listening port ${PORT}`);
+});
+
+io.on("connection", (socket) => {
+  console.log(socket, " connected");
+  server.emit("CONNECTED", "connected successfully");
+});
+
+io.on("Thanks", (socket) => {
+  console.log("Thanks.");
 });
