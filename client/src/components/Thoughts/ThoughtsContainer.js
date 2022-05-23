@@ -3,6 +3,7 @@ import Masonry from "react-masonry-css";
 import "../../styles/Thoughts.css";
 import CreateThought from "../Personal/CreateThought";
 import ThinkingMan from "../../assets/thinking-man.svg";
+import React from "react";
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));

@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import "../../styles/Profile.css";
 import faker from "faker";
 import { Alert, Button, Form, FormControl } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";

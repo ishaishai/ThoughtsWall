@@ -1,3 +1,5 @@
+import React from "react";
+
 const Alert = ({ AlertTitle, AlertText, AlertType }) => {
   return (
     <div className={`alert-container ${AlertType}`}>

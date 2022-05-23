@@ -1,6 +1,6 @@
 import { Modal, Button, FormControl, Form } from "react-bootstrap";
 import Comment from "./Comment";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Loader from "../Loader";
 import axios from "axios";

@@ -1,4 +1,6 @@
+import React from "react";
 import Thought from "../assets/thought.png";
+
 const Welcome = () => {
   return (
     <div className="welcome-component">

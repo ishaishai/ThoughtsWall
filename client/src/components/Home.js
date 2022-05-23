@@ -1,6 +1,6 @@
 import ThoughtsContainer from "./Thoughts/ThoughtsContainer";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../styles/App.css";
 import Welcome from "./Welcome";

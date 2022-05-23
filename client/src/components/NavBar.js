@@ -2,7 +2,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/index";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import "../styles/Navbar.css";
 import axios from "axios";
 

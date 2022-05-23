@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import axios from "axios";
 import ThoughtContainer from "../Thoughts/ThoughtsContainer";
 import { Redirect } from "react-router";
